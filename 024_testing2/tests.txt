@@ -1,21 +1,12 @@
-aaaaa bbbbc
 aaabb bbbbc
-aaaaa bbbcd
-aaaaa bbcde
 aaaaa abcde
-aaaab bbbbc
-aaaab bbbcd
-aaaab bbcde
-aaaab abcde
-aaabc bbbdc
-aaabb bbbdd
-aabbb bbaaa
-aabbc bbacd
-aabcb bbacd
-abbbc babab
-abcda bbacd
-aa bb cc 
-a b
-a
+bbbaa aaabb
+abbbc bbaac
+a b c 
 11111 111111
 111111 111111
+1
+a b
+aaaaa bbb
+
+
