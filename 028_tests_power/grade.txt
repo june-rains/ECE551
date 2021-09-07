@@ -1,0 +1,55 @@
+Grading at 09/07/2021:13:12:20.284161
+For commit ID 40b6ca333a6b05224397f82b266e1d9b0360f2d5
+Grading at Tue Sep  7 09:12:19 EDT 2021
+**Testing broken implementation 10 **
+-------------------------------------
+
+not a valid function!
+**Testing broken implementation 11 **
+-------------------------------------
+
+not a valid function!
+**Testing broken implementation 1 **
+-------------------------------------
+
+not a valid function!
+**Testing broken implementation 2 **
+-------------------------------------
+
+not a valid function!
+**Testing broken implementation 3 **
+-------------------------------------
+
+not a valid function!
+**Testing broken implementation 4 **
+-------------------------------------
+
+not a valid function!
+**Testing broken implementation 5 **
+-------------------------------------
+
+not a valid function!
+**Testing broken implementation 6 **
+-------------------------------------
+
+not a valid function!
+**Testing broken implementation 7 **
+-------------------------------------
+
+not a valid function!
+**Testing broken implementation 8 **
+-------------------------------------
+
+not a valid function!
+**Testing broken implementation 9 **
+-------------------------------------
+
+not a valid function!
+**Testing correct implementation **
+-------------------------------------
+
+
+All tests were ok.
+
+
+Overall Grade: PASSED
