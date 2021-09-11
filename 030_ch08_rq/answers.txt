@@ -10,8 +10,8 @@ f
 b
 d
 c
-g
+f
 c
 b
 c
-a
+c
