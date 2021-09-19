@@ -8,6 +8,7 @@ int count(FILE * f) {
   int c;
   while ((c = fgetc(f)) != EOF) {
     if (isalpha(c)) {
+      c = tolower(c);
       arr[c - 'a'] += 1;
     }
   }
