@@ -16,7 +16,7 @@ int count(FILE * f) {
   int currMax = arr[0];
   //注意要更新比较的数
   for (int i = 1; i < 26; i++) {
-    if (currMax <= arr[i]) {
+    if (currMax < arr[i]) {
       max = i;
       currMax = arr[i];
     }
