@@ -1,7 +1,7 @@
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
-/*
+
 int count(FILE * f) {
   //这种方法可以初始化所有的数组元素为0
   int arr[26] = {0};
@@ -28,7 +28,7 @@ int count(FILE * f) {
 int breaker(FILE * f) {
   int max = count(f);
   int key;
-  key = max - 4;
+  key = (max + 26 - 4) % 26;
   return key;
 }
 
@@ -55,8 +55,8 @@ int main(int argc, char ** argv) {
   }
   return EXIT_SUCCESS;
 }
-*/
 
+/*
 int decrypt(FILE * f) {
   int ch;
   int cnt[26] = {0};
@@ -93,3 +93,4 @@ int main(int argc, char ** argv) {
   fclose(f);
   return EXIT_SUCCESS;
 }
+*/
