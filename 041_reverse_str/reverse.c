@@ -5,6 +5,9 @@
 void reverse(char * str) {
   char * ptr1 = str;
   int count = 0;
+  if (str == NULL) {
+    return;
+  }
   while (*ptr1 != '\0') {
     ptr1++;
     count++;
