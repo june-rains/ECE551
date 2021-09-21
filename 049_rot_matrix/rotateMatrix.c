@@ -14,7 +14,7 @@ int main(int argc, char ** argv) {
     return EXIT_FAILURE;
   }
 
-  char matrix[10][12];
+  char matrix[11][12];
   int row = 0;
   while (fgets(matrix[row], 12, f) != NULL) {
     if (strchr(matrix[row], '\n') - matrix[row] != 10) {
