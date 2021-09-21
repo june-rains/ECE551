@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define INT_MAX 2147483647
-
 int main(int argc, char ** argv) {
   if (argc != 2) {
     fprintf(stderr, "Usage: rotateMatrix inputFilename\n");
@@ -16,7 +14,7 @@ int main(int argc, char ** argv) {
     return EXIT_FAILURE;
   }
 
-  char matrix[INT_MAX][12];
+  char matrix[11][12];
   int row = 0;
   while (fgets(matrix[row], 12, f) != NULL) {
     if (strchr(matrix[row], '\n') - matrix[row] != 10) {
