@@ -44,6 +44,7 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
   //WRITE ME
   double total = 0;
   for (size_t i = 0; i < n_days - 6; i++) {
+    total = 0;
     for (size_t j = i; j < i + 7; j++) {
       total += data[j];
     }
