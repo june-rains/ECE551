@@ -42,20 +42,14 @@ country_t parseLine(char * line) {
 
 void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
   //WRITE ME
-  unsigned * p = data;
   double total = 0;
-  for (int i = 0; i < 7; i++) {
-    total += *p;
-    p++;
+  for (size_t i = 0; i < n_days - 6; i++) {
+    for (size_t j = i; j < i + 7; j++) {
+      total += data[j];
+    }
+    avg[i] = total / 7;
   }
-  avg[0] = total / 7;
-  p++;
-  for (size_t j = 1; j < n_days - 6; j++) {
-    avg[j] = *p;
-    p++;
-
-    //考虑n_days大于7或者小于7?
-  }
+  //考虑n_days大于7或者小于7?
 }
 
 void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) {
