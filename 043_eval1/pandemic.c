@@ -5,7 +5,7 @@
 
 country_t parseLine(char * line) {
   //WRITE ME
-  //Declare variable
+  //Declare variables
   country_t ans;
   char * p1 = strchr(line, ',');
   char * p2 = strchr(line, '\n');
@@ -25,8 +25,9 @@ country_t parseLine(char * line) {
   ans.name[name_length] = '\0';
 
   //copy into ans.population
-  p1++;
+  p1++;  //use pointer p1 to copy population number
   for (int j = 0; j < popu_length; j++) {
+    //judge input error for invalid population representation
     if ((*p1) < 48 || (*p1) > 57) {
       fprintf(stderr, "Can not represent population with number!");
       exit(EXIT_FAILURE);
@@ -41,10 +42,29 @@ country_t parseLine(char * line) {
 
 void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
   //WRITE ME
+  unsigned * p = data;
+  double total = 0;
+  for (int i = 0; i < 7; i++) {
+    total += *p;
+    p++;
+  }
+  avg[0] = total / 7;
+  p++;
+  for (size_t j = 1; j < n_days - 6; j++) {
+    avg[j] = *p;
+    p++;
+
+    //考虑n_days大于7或者小于7?
+  }
 }
 
 void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) {
   //WRITE ME
+  double total = 0;
+  for (size_t i = 0; i < n_days; i++) {
+    total += data[i];
+    cum[i] = (total * 100000) / pop;
+  }
 }
 
 void printCountryWithMax(country_t * countries,
@@ -52,4 +72,26 @@ void printCountryWithMax(country_t * countries,
                          unsigned ** data,
                          size_t n_days) {
   //WRITE ME
+  unsigned max[n_countries];
+  for (size_t i = 0; i < n_countries; i++) {
+    max[i] = data[i][0];
+    for (size_t j = 1; j < n_days; j++) {
+      if (max[i] <= data[i][j]) {
+        max[i] = data[i][j];
+      }
+    }
+  }
+  size_t country_num = 0;
+  for (size_t i = 1; i < n_countries; i++) {
+    if (max[country_num] == max[i]) {
+      printf("There is a tie between at least two countries");
+      return;
+    }
+    if (max[country_num] < max[i]) {
+      country_num = i;
+    }
+  }
+  printf("%s has the most daily cases with %u\n",
+         countries[country_num].name,
+         max[country_num]);
 }
