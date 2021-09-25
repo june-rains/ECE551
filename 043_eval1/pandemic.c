@@ -14,7 +14,13 @@ country_t parseLine(char * line) {
   int name_length = p1 - line;
   int popu_length = p2 - p1 - 1;
   char population[popu_length + 1];
+
   //judge input error for name
+  if (popu_length < 1) {
+    fprintf(stderr, "invalid population form!");
+    exit(EXIT_FAILURE);
+  }
+
   if (name_length > 63) {
     fprintf(stderr, "Invalid size of country name!");
     exit(EXIT_FAILURE);
