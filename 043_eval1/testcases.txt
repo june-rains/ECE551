@@ -2,11 +2,11 @@
 printCountries invalid.csv
 printCountries invalidBigNum.csv
 printCountries invalidEmptyNum.csv
-printCountries invalidNegNum.csv
 printCountries invalidAlphabetNum.csv
 #success
 printCountries population.csv
 printCountries FractionNum.csv
+printCountries invalidNegNum.csv
 printDailyMax population.csv daily_small.csv
 printCumulative population.csv daily_small.csv
 printRunningAvg population.csv daily_small.csv

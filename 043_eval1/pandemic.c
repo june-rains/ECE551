@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define WORLD_POPU 7865569100
+#define INT_MAX 18446744073709551615U
 
 country_t parseLine(char * line) {
   //WRITE ME
@@ -47,7 +47,7 @@ country_t parseLine(char * line) {
   }
   ans.population = atoi(population);
   //judge error case: big number
-  if (ans.population > WORLD_POPU) {
+  if (ans.population == INT_MAX) {
     fprintf(stderr, "Too Big Population Number!");
     exit(EXIT_FAILURE);
   }
