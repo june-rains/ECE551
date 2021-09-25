@@ -42,6 +42,12 @@ country_t parseLine(char * line) {
 
 void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
   //WRITE ME
+  //check n_days, if n_days < 7, do nothing
+  if (n_days < 7) {
+    return;
+  }
+
+  //n_days >= 7, compute avg as usual
   double total = 0;
   for (size_t i = 0; i < n_days - 6; i++) {
     total = 0;
@@ -50,7 +56,6 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
     }
     avg[i] = total / 7;
   }
-  //考虑n_days大于7或者小于7?
 }
 
 void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) {
