@@ -6,7 +6,7 @@ printCountries invalidNegNum.csv
 printCountries invalidAlphabetNum.csv
 #success
 printCountries population.csv
-printCountries invalidFractionNum.csv
+printCountries FractionNum.csv
 printDailyMax population.csv daily_small.csv
 printCumulative population.csv daily_small.csv
 printRunningAvg population.csv daily_small.csv
