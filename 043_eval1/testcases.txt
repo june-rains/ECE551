@@ -3,6 +3,7 @@ printCountries invalid.csv
 printCountries invalidBigNum.csv
 printCountries invalidEmptyNum.csv
 printCountries invalidAlphabetNum.csv
+printCountries BigNumber2.csv
 #success
 printCountries population.csv
 printCountries FractionNum.csv
