@@ -1,5 +1,6 @@
 #include "pandemic.h"
 
+#include <math.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -40,17 +41,14 @@ country_t parseLine(char * line) {
   }
   population[popu_length] = '\0';
   //judge input error for invalid population representation
-  if (!atoi(population)) {
-    fprintf(stderr, "Can not represent population with number!");
+  if (atoi(population) == 0) {
+    fprintf(stderr, "Can not represent population with valid number!");
     exit(EXIT_FAILURE);
   }
-  else {
-    ans.population = atoi(population);
-  }
-
+  ans.population = atoi(population);
   //judge error case: big number
   if (ans.population > WORLD_POPU) {
-    fprintf(stderr, "TOO BIG NUMBER!");
+    fprintf(stderr, "Too Big Population Number!");
     exit(EXIT_FAILURE);
   }
 
