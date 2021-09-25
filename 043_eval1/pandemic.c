@@ -15,12 +15,12 @@ country_t parseLine(char * line) {
   int popu_length = p2 - p1 - 1;
   char population[popu_length + 1];
 
-  //judge input error for name
+  //judge input error for population size
   if (popu_length < 1) {
     fprintf(stderr, "invalid population form!");
     exit(EXIT_FAILURE);
   }
-
+  //judge input error for name size
   if (name_length > 63) {
     fprintf(stderr, "Invalid size of country name!");
     exit(EXIT_FAILURE);
@@ -35,16 +35,20 @@ country_t parseLine(char * line) {
   //copy into ans.population
   p1++;  //use pointer p1 to copy population number
   for (int j = 0; j < popu_length; j++) {
-    //judge input error for invalid population representation
-    if ((*p1) < 48 || (*p1) > 57) {
-      fprintf(stderr, "Can not represent population with number!");
-      exit(EXIT_FAILURE);
-    }
     population[j] = *p1;
     p1++;
   }
   population[popu_length] = '\0';
-  ans.population = atoi(population);
+  //judge input error for invalid population representation
+  if (!atoi(population)) {
+    fprintf(stderr, "Can not represent population with number!");
+    exit(EXIT_FAILURE);
+  }
+  else {
+    ans.population = atoi(population);
+  }
+
+  //judge error case: big number
   if (ans.population > WORLD_POPU) {
     fprintf(stderr, "TOO BIG NUMBER!");
     exit(EXIT_FAILURE);
@@ -87,6 +91,9 @@ void printCountryWithMax(country_t * countries,
                          size_t n_days) {
   //WRITE ME
   //考虑corner case?
+  if (n_countries < 1 || n_days < 1) {
+    return;
+  }
   unsigned max[n_countries];
   for (size_t i = 0; i < n_countries; i++) {
     max[i] = data[i][0];
