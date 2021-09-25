@@ -1,6 +1,6 @@
-Grading at 09/25/2021:20:36:21.064545
-For commit ID 04a907aa89f7bb6d0c6b566ee47b7cb2edb8f7cb
-Grading at Sat Sep 25 16:36:12 EDT 2021
+Grading at 09/25/2021:20:52:59.665058
+For commit ID af84209d9bf4c34dd31b23a67cb16130054b9a82
+Grading at Sat Sep 25 16:52:51 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -8,6 +8,9 @@ rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
 +-----------------------------------------------------------------------+
 Test case printCountries invalid.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries invalidBigNum.csv
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries invalidEmptyNum.csv
@@ -22,10 +25,6 @@ Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries population.csv
 Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printCountries invalidBigNum.csv
-Line_1_did_not_match
-Your file did not match the expected ouput
 
 Compiling printDailyMax
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
