@@ -1,6 +1,6 @@
-Grading at 09/25/2021:20:52:59.665058
-For commit ID af84209d9bf4c34dd31b23a67cb16130054b9a82
-Grading at Sat Sep 25 16:52:51 EDT 2021
+Grading at 09/25/2021:21:00:01.378864
+For commit ID 76dfb120ded190d398db48cdd854f0f05e0783c9
+Grading at Sat Sep 25 16:59:52 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -14,8 +14,7 @@ Test case printCountries invalidBigNum.csv
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries invalidEmptyNum.csv
-zheshilingyigeceshi: 0
-Your program did not indicate a failure case
+Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries invalidNegNum.csv
 Our printCountries does not consider this an error case
