@@ -1,8 +1,0 @@
-#error
-printCountries invalid.csv
-
-#success
-printCountries population.csv
-printDailyMax population.csv daily_small.csv
-printRunningAvg population.csv daily_small.csv
-printcumulative population.csv daily_small.csv
