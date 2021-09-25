@@ -55,6 +55,7 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
 
 void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) {
   //WRITE ME
+  //考虑corner case?
   double total = 0;
   for (size_t i = 0; i < n_days; i++) {
     total += data[i];
@@ -67,6 +68,7 @@ void printCountryWithMax(country_t * countries,
                          unsigned ** data,
                          size_t n_days) {
   //WRITE ME
+  //考虑corner case?
   unsigned max[n_countries];
   for (size_t i = 0; i < n_countries; i++) {
     max[i] = data[i][0];
