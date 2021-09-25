@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <string.h>
 
+#define WORLD_POPU 7865569100
+
 country_t parseLine(char * line) {
   //WRITE ME
   //Declare variables
@@ -37,6 +39,11 @@ country_t parseLine(char * line) {
   }
   population[popu_length] = '\0';
   ans.population = atoi(population);
+  if (ans.population > WORLD_POPU) {
+    fprintf(stderr, "TOO BIG NUMBER!");
+    exit(EXIT_FAILURE);
+  }
+
   return ans;
 }
 
