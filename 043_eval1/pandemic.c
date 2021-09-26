@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 
+//define the maximum unsinged long integer to help
 #define UINT_MAX64 18446744073709551615U
 
 country_t parseLine(char * line) {
@@ -78,7 +79,12 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
 
 void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) {
   //WRITE ME
-  //考虑corner case?
+  //check n_days, if n_days < 1, do nothing
+  if (n_days < 1) {
+    return;
+  }
+
+  //n_days >= 1, compute as usual
   double total = 0;
   for (size_t i = 0; i < n_days; i++) {
     total += data[i];
@@ -91,10 +97,12 @@ void printCountryWithMax(country_t * countries,
                          unsigned ** data,
                          size_t n_days) {
   //WRITE ME
-  //考虑corner case?
+  //check n_countries and n_days, if either of them smaller than 1, do nothing
   if (n_countries < 1 || n_days < 1) {
     return;
   }
+
+  //if n_countries and n_days > 1, then compute as usual
   unsigned max[n_countries];
   for (size_t i = 0; i < n_countries; i++) {
     max[i] = data[i][0];
