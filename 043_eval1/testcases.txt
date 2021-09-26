@@ -9,6 +9,7 @@ printCountries population.csv
 printCountries FractionNum.csv
 printCountries BigNumber2.csv
 printCountries NegNum.csv
+printCountries NumAlphabet.csv
 printDailyMax population.csv daily_small.csv
 printCumulative population.csv daily_small.csv
 printRunningAvg population.csv daily_small.csv
