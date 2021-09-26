@@ -1,9 +1,10 @@
 #include "pandemic.h"
 
+#include <errno.h>
 #include <stdio.h>
 #include <string.h>
 
-#define INT_MAX 18446744073709551615U
+#define UINT_MAX64 18446744073709551615U
 
 country_t parseLine(char * line) {
   //WRITE ME
@@ -39,17 +40,20 @@ country_t parseLine(char * line) {
     p1++;
   }
   population[popu_length] = '\0';
+  char * endptr;
   //judge error case: invalid population representation
-  if (atoi(population) == 0) {
+  if (strtoul(population, &endptr, 10) == 0) {
     fprintf(stderr, "Can not represent population with valid number!");
     exit(EXIT_FAILURE);
   }
-  ans.population = atoi(population);
+  uint64_t result = strtoul(population, &endptr, 10);
   //judge error case: big number
-  if (ans.population == INT_MAX) {
+  if (result == UINT_MAX64 && errno == ERANGE) {
     fprintf(stderr, "Too Big Population Number!");
     exit(EXIT_FAILURE);
   }
+
+  ans.population = strtoul(population, &endptr, 10);
 
   return ans;
 }
