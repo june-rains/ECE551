@@ -1,0 +1,22 @@
+Grading at 09/27/2021:03:07:29.781237
+For commit ID d4fa9ba2b6f9976e24efea837f041bceed220040
+Grading at Sun Sep 26 23:07:24 EDT 2021
+Attempting to compile sortLines.c
+#################################################
+testcase1:
+testcase1 passed, your program successfully indicated a failure
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
+#################################################
+testcase2:
+Your output is correct
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
+#################################################
+testcase3:
+Your output is incorrect
+#################################################
+testcase4:
+Your output is incorrect
+
+Overall Grade: F
