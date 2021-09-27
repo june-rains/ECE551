@@ -19,8 +19,7 @@ int readAndSortAndPrint(FILE * f) {
   size_t sz = 0;
   char * curr = NULL;
   char ** lines = NULL;
-  int len = 0;
-  while ((len = getline(&curr, &sz, f)) != EOF) {
+  while (getline(&curr, &sz, f) >= 0) {
     lines = realloc(lines, (i + 1) * sizeof(*lines));
     lines[i] = curr;
     curr = NULL;
@@ -36,19 +35,6 @@ int readAndSortAndPrint(FILE * f) {
   return EXIT_SUCCESS;
 }
 
-void processOneFile(char * filename) {
-  FILE * f = fopen(filename, "r");
-  if (f == NULL) {
-    fprintf(stderr, "Can not open the file");
-    exit(EXIT_FAILURE);
-  }
-  readAndSortAndPrint(f);
-  if (fclose(f) != 0) {
-    fprintf(stderr, "Failed to close the input file!");
-    exit(EXIT_FAILURE);
-  }
-}
-
 int main(int argc, char ** argv) {
   //WRITE YOUR CODE HERE!
   if (argc == 1) {
@@ -56,13 +42,21 @@ int main(int argc, char ** argv) {
   }
   else {
     for (int i = 1; i < argc; i++) {
-      processOneFile(argv[i]);
+      FILE * f = fopen(argv[i], "r");
+      if (f == NULL) {
+        fprintf(stderr, "Can not open the file");
+        exit(EXIT_FAILURE);
+      }
+      readAndSortAndPrint(f);
+      if (fclose(f) != 0) {
+        fprintf(stderr, "Failed to close the input file!");
+        exit(EXIT_FAILURE);
+      }
     }
     printf("finish all sorting and printing process!");
   }
   return EXIT_SUCCESS;
 }
-
 /*
 void func(FILE * f) {
   char * str = NULL;
