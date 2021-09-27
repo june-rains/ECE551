@@ -53,10 +53,10 @@ int main(int argc, char ** argv) {
         exit(EXIT_FAILURE);
       }
     }
-    printf("finish all sorting and printing process!");
   }
   return EXIT_SUCCESS;
 }
+
 /*
 void func(FILE * f) {
   char * str = NULL;
