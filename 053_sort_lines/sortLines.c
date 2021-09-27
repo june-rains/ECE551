@@ -13,13 +13,14 @@ int stringOrder(const void * vp1, const void * vp2) {
 void sortData(char ** data, size_t count) {
   qsort(data, count, sizeof(char *), stringOrder);
 }
-/*
+
 int readAndSortAndPrint(FILE * f) {
   size_t i = 0;
   size_t sz = 0;
   char * curr = NULL;
   char ** lines = NULL;
-  while (getline(&curr, &sz, f) >= 0) {
+  int len = 0;
+  while ((len = getline(&curr, &sz, f)) != EOF) {
     lines = realloc(lines, (i + 1) * sizeof(*lines));
     lines[i] = curr;
     curr = NULL;
@@ -61,8 +62,8 @@ int main(int argc, char ** argv) {
   }
   return EXIT_SUCCESS;
 }
-*/
 
+/*
 void func(FILE * f) {
   char * str = NULL;
   size_t sz = 0;
@@ -104,3 +105,4 @@ int main(int argc, char ** argv) {
   }
   return EXIT_SUCCESS;
 }
+*/
