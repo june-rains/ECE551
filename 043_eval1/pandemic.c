@@ -1,6 +1,7 @@
 #include "pandemic.h"
 
 #include <errno.h>
+#include <math.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -87,6 +88,9 @@ void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) 
   //n_days >= 1, compute as usual
   double total = 0;
   for (size_t i = 0; i < n_days; i++) {
+    if (pop == 0) {
+      cum[i] = INFINITY;
+    }
     total += data[i];
     cum[i] = (total * 100000) / pop;
   }
