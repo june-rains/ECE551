@@ -118,6 +118,19 @@ void printBoard(board_t * b) {
 }
 int countMines(board_t * b, int x, int y) {
   //WRITE ME!
+  int dx[] = {-1, -1, -1, 0, 0, 1, 1, 1};
+  int dy[] = {1, 0, -1, 1, -1, 1, 0, -1};
+  int cnt = 0;
+  for (int i = 0; i < 8; i++) {
+    int tx = x + dx[i];
+    int ty = y + dy[i];
+    if (tx >= 0 && tx < b->width && ty >= 0 && ty < b->height &&
+        IS_MINE(b->board[ty][tx])) {
+      cnt += 1;
+    }
+  }
+  return cnt;
+  /*
   int count = 0;
   if (x < 0 || y < 0 || x > b->width || y > b->height) {
     printf("Oops! out of bounds!");
@@ -180,6 +193,7 @@ int countMines(board_t * b, int x, int y) {
     }
   }
   return count;
+  */
 }
 
 int click(board_t * b, int x, int y) {
