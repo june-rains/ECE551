@@ -135,7 +135,6 @@ int countMines(board_t * b, int x, int y) {
 
   int count = 0;
   if (x < 0 || y < 0 || x >= b->width || y >= b->height) {
-    printf("Oops! out of bounds!");
     return EXIT_FAILURE;
   }
 
