@@ -135,7 +135,7 @@ int countMines(board_t * b, int x, int y) {
 
   int count = 0;
   if (x < 0 || y < 0 || x >= b->width || y >= b->height) {
-    return EXIT_FAILURE;
+    return count;
   }
 
   if (x - 1 < 0) {
