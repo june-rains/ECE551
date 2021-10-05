@@ -12,8 +12,8 @@ typedef struct _kvpair_t kvpair_t;
 struct _kvarray_t {
   //DEFINE ME!
   //很关键！！
-  kvpair_t ** kv_array;
-  size_t length;
+  kvpair_t ** kvs;
+  size_t n_kvs;
 };
 typedef struct _kvarray_t kvarray_t;
 
