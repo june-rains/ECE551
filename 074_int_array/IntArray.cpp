@@ -48,39 +48,29 @@ int IntArray::size() const {
 }
 
 bool IntArray::operator==(const IntArray & rhs) const {
-  if (numElements == rhs.numElements) {
-    for (int i = 0; i < numElements; i++) {
-      if (data[i] != rhs.data[i]) {
-        return false;
-      }
-    }
-    return true;
-  }
-  else {
+  if (numElements != rhs.numElements) {
     return false;
   }
+  for (int i = 0; i < numElements; i++) {
+    if (data[i] != rhs.data[i]) {
+      return false;
+    }
+  }
+  return true;
 }
 
 bool IntArray::operator!=(const IntArray & rhs) const {
-  if (numElements != rhs.numElements) {
-    for (int i = 0; i < numElements; i++) {
-      if (data[i] == rhs.data[i]) {
-        return false;
-      }
-    }
-    return true;
-  }
-  else {
-    return false;
-  }
+  return !(*this == rhs);
 }
 
 std::ostream & operator<<(std::ostream & s, const IntArray & rhs) {
   s << "{";
-  for (int i = 0; i < rhs.size() - 1; i++) {
-    s << rhs[i] << ", ";
+  for (int i = 0; i < rhs.size(); i++) {
+    s << rhs[i];
+    if (i != rhs.size() - 1) {
+      s << ", ";
+    }
   }
-  s << rhs[rhs.size() - 1];
   s << "}";
   return s;
 }
