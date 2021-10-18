@@ -2,6 +2,9 @@
 story-step1 storytest1.txt
 story-step2 story.txt
 story-step2 wordstest1.txt
+story-step3 words.txt storytest1.txt
+story-step4 words.txt storytest1.txt
+story-step4 -n words.txt storytest1.txt
 #success
 story-step1 story.txt
 story-step2 words.txt
