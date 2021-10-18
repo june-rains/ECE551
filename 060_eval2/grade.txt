@@ -1,6 +1,6 @@
-Grading at 10/18/2021:13:23:27.446948
-For commit ID ec5fc03a416e076e19072856d927d4cd480d5b1d
-Grading at Mon Oct 18 09:23:22 EDT 2021
+Grading at 10/18/2021:13:25:51.237989
+For commit ID a11e3651ee2ec4800f5bb41379b2ee580785ecb5
+Grading at Mon Oct 18 09:25:42 EDT 2021
 Running your test cases
 
 Compiling story-step2
@@ -40,6 +40,38 @@ Test case story-step2 wordstest2.txt
 Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case story-step2 wordstest3.txt
+Your file matched the expected output
+
+Compiling story-step3
+rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step3.c
+gcc -o story-step3 story-step3.o rand_story.o provided.o
+rm story-step3.o
++-----------------------------------------------------------------------+
+Test case story-step3 words.txt story.txt
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case story-step3 words.txt story2.txt
+Your file matched the expected output
+
+Compiling story-step4
+rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step4.c
+gcc -o story-step4 story-step4.o rand_story.o provided.o
+rm story-step4.o
++-----------------------------------------------------------------------+
+Test case story-step4 words.txt story.txt
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case story-step4 words.txt story2.txt
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case story-step4 -n words.txt story.txt
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case story-step4 -n words.txt story2.txt
 Your file matched the expected output
 
 You have PASSED all of your test cases
