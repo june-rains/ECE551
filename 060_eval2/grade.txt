@@ -1,0 +1,49 @@
+Grading at 10/18/2021:13:20:50.012929
+For commit ID 9d1972f43edfd871f4e3619d2ac59ff73c9384e8
+Grading at Mon Oct 18 09:20:45 EDT 2021
+Running your test cases
+
+Compiling story-step2
+rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step2.c
+gcc -o story-step2 story-step2.o rand_story.o provided.o
+rm story-step2.o
++-----------------------------------------------------------------------+
+Test case story-step2 story.txt
+Your program successfully indicated a failure case
+
+Compiling story-step1
+rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step1.c
+gcc -o story-step1 story-step1.o rand_story.o provided.o
+rm story-step1.o
++-----------------------------------------------------------------------+
+Test case story-step1 story.txt
+Your file matched the expected output
+
+Compiling story-step2
+rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step2.c
+gcc -o story-step2 story-step2.o rand_story.o provided.o
+rm story-step2.o
++-----------------------------------------------------------------------+
+Test case story-step2 words.txt
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case story-step2 wordstest1.txt
+Line_1_did_not_match
+Your file did not match the expected output
++-----------------------------------------------------------------------+
+Test case story-step2 wordstest2.txt
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case story-step2 wordstest3.txt
+Your file matched the expected output
+
+You have FAILED one or more of your test cases
+Keep debugging
+
+Overall Grade: NO GRADE YET
