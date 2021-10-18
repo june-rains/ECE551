@@ -1,7 +1,17 @@
-Grading at 10/18/2021:13:25:51.237989
-For commit ID a11e3651ee2ec4800f5bb41379b2ee580785ecb5
-Grading at Mon Oct 18 09:25:42 EDT 2021
+Grading at 10/18/2021:13:33:46.540498
+For commit ID ef1923faf69b77af3173a7af77a712f40b78e158
+Grading at Mon Oct 18 09:33:36 EDT 2021
 Running your test cases
+
+Compiling story-step1
+rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step1.c
+gcc -o story-step1 story-step1.o rand_story.o provided.o
+rm story-step1.o
++-----------------------------------------------------------------------+
+Test case story-step1 storytest1.txt
+Your program successfully indicated a failure case
 
 Compiling story-step2
 rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
