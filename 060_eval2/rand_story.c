@@ -138,6 +138,11 @@ wordarray_t * replaceAll(wordarray_t * arr,
       (*usedWords)->n_words++;
     }
 
+    else {
+      fprintf(stderr, "Invalid format of the category reference number!");
+      exit(EXIT_FAILURE);
+    }
+
     int newlen = strlen(new);
     if (restlen == 0) {
       result = strdup(new);
@@ -232,7 +237,7 @@ void freeArray(catarray_t * ans) {
   for (size_t i = 0; i < ans->n; i++) {
     for (size_t j = 0; j < ans->arr[i].n_words; j++) {
       if (ans->arr[i].words[j] == NULL) {
-        free(ans->arr[i].words[j + 1]);
+        ans->arr[i].n_words++;
       }
       else {
         free(ans->arr[i].words[j]);
