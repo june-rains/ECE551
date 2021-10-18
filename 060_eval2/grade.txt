@@ -1,6 +1,6 @@
-Grading at 10/18/2021:13:35:28.796507
-For commit ID f2526259bde17a72b0dca3227779900704e7d9d9
-Grading at Mon Oct 18 09:35:16 EDT 2021
+Grading at 10/18/2021:13:42:01.108950
+For commit ID 90a5c973712aa6ef9c878cc8f1e9ff429a2c744a
+Grading at Mon Oct 18 09:41:49 EDT 2021
 Running your test cases
 
 Compiling story-step1
@@ -44,10 +44,10 @@ gcc -o story-step4 story-step4.o rand_story.o provided.o
 rm story-step4.o
 +-----------------------------------------------------------------------+
 Test case story-step4 words.txt storytest1.txt
-Valgrind reported memory errors
+Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case story-step4 -n words.txt storytest1.txt
-Valgrind reported memory errors
+Your program successfully indicated a failure case
 
 Compiling story-step1
 rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
@@ -107,7 +107,7 @@ Your file matched the expected output
 Test case story-step4 -n words.txt story2.txt
 Your file matched the expected output
 
-You have FAILED one or more of your test cases
-Keep debugging
+You have PASSED all of your test cases
+Keep adding test cases until you are satisfied your program is correct
 
 Overall Grade: NO GRADE YET
