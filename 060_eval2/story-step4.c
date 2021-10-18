@@ -21,6 +21,7 @@ int main(int argc, char ** argv) {
     char ** nameArray = NULL;
     int index = 0;
     while ((len1 = getline(&curr1, &linecapp1, fwords)) >= 0) {
+      checkStep2(curr1);
       char * name = extractName(curr1);
       nameArray = realloc(nameArray, (index + 1) * sizeof(*nameArray));
       nameArray[index] = name;
@@ -38,6 +39,7 @@ int main(int argc, char ** argv) {
     size_t linecapp2 = 0;
     char * curr2 = NULL;
     while ((len2 = getline(&curr2, &linecapp2, fstory)) >= 0) {
+      checkStep1(curr2);
       category_t * usedWords = malloc(sizeof(*usedWords));
       wordarray_t * line;
       wordarray_t * catname;
@@ -90,6 +92,7 @@ int main(int argc, char ** argv) {
       char ** nameArray = NULL;
       int index = 0;
       while ((len1 = getline(&curr1, &linecapp1, fwords)) >= 0) {
+        checkStep2(curr1);
         char * name = extractName(curr1);
         nameArray = realloc(nameArray, (index + 1) * sizeof(*nameArray));
         nameArray[index] = name;
@@ -107,6 +110,7 @@ int main(int argc, char ** argv) {
       size_t linecapp2 = 0;
       char * curr2 = NULL;
       while ((len2 = getline(&curr2, &linecapp2, fstory)) >= 0) {
+        checkStep1(curr2);
         category_t * usedWords = malloc(sizeof(*usedWords));
         wordarray_t * line;
         wordarray_t * catname;
