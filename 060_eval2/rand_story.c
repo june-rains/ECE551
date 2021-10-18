@@ -117,11 +117,26 @@ wordarray_t * replaceAll(wordarray_t * arr,
       if (rm == 1) {
         for (size_t m = 0; m < (*ans)->n; m++) {
           if (strcmp((*ans)->arr[m].name, catarr->wordArr[i]) == 0) {
+            if ((*ans)->arr[m].n_words == 0) {
+              fprintf(stderr, "words are used up! no more words!");
+              exit(EXIT_FAILURE);
+            }
             for (size_t n = 0; n < (*ans)->arr[m].n_words; n++) {
               if (strcmp((*ans)->arr[m].words[n], new) == 0) {
                 free((*ans)->arr[m].words[n]);
                 (*ans)->arr[m].words[n] = NULL;
+                for (size_t k = n; k < (*ans)->arr[m].n_words - 1; k++) {
+                  (*ans)->arr[m].words[k] = (*ans)->arr[m].words[k + 1];
+                }
+                (*ans)->arr[m].words =
+                    realloc((*ans)->arr[m].words,
+                            ((*ans)->arr[m].n_words - 1) * sizeof(*(*ans)->arr[m].words));
                 (*ans)->arr[m].n_words--;
+                /*
+                free((*ans)->arr[m].words[n]);
+                (*ans)->arr[m].words[n] = NULL;
+                (*ans)->arr[m].n_words--;
+		*/
               }
             }
           }
@@ -236,13 +251,17 @@ void addWords(char * word, char * name, catarray_t * ans) {
 void freeArray(catarray_t * ans) {
   for (size_t i = 0; i < ans->n; i++) {
     for (size_t j = 0; j < ans->arr[i].n_words; j++) {
+      free(ans->arr[i].words[j]);
+      /*
       if (ans->arr[i].words[j] == NULL) {
         ans->arr[i].n_words++;
       }
       else {
         free(ans->arr[i].words[j]);
       }
+      */
     }
+
     free(ans->arr[i].words);
   }
 
