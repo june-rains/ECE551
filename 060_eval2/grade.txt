@@ -1,6 +1,6 @@
-Grading at 10/18/2021:13:33:46.540498
-For commit ID ef1923faf69b77af3173a7af77a712f40b78e158
-Grading at Mon Oct 18 09:33:36 EDT 2021
+Grading at 10/18/2021:13:35:28.796507
+For commit ID f2526259bde17a72b0dca3227779900704e7d9d9
+Grading at Mon Oct 18 09:35:16 EDT 2021
 Running your test cases
 
 Compiling story-step1
@@ -25,6 +25,29 @@ Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case story-step2 wordstest1.txt
 Your program successfully indicated a failure case
+
+Compiling story-step3
+rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step3.c
+gcc -o story-step3 story-step3.o rand_story.o provided.o
+rm story-step3.o
++-----------------------------------------------------------------------+
+Test case story-step3 words.txt storytest1.txt
+Your program successfully indicated a failure case
+
+Compiling story-step4
+rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step4.c
+gcc -o story-step4 story-step4.o rand_story.o provided.o
+rm story-step4.o
++-----------------------------------------------------------------------+
+Test case story-step4 words.txt storytest1.txt
+Valgrind reported memory errors
++-----------------------------------------------------------------------+
+Test case story-step4 -n words.txt storytest1.txt
+Valgrind reported memory errors
 
 Compiling story-step1
 rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
@@ -84,7 +107,7 @@ Your file matched the expected output
 Test case story-step4 -n words.txt story2.txt
 Your file matched the expected output
 
-You have PASSED all of your test cases
-Keep adding test cases until you are satisfied your program is correct
+You have FAILED one or more of your test cases
+Keep debugging
 
 Overall Grade: NO GRADE YET
