@@ -1,0 +1,8 @@
+#error
+story-step2 story.txt
+#success
+story-step1 story.txt
+story-step2 words.txt
+story-step2 wordstest1.txt
+story-step2 wordstest2.txt
+story-step2 wordstest3.txt
