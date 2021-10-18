@@ -6,21 +6,6 @@ int main(int argc, char ** argv) {
     exit(EXIT_FAILURE);
   }
   FILE * f = readFILE(argv[1]);
-  /*
-  catarray_t * ans = malloc(sizeof(*ans));
-  ans->n = 0;
-  ans->arr = NULL;
-  char ** nameArray = NULL;
-  int index = 0;
-  ans = storeWords(f, &nameArray, ans, &index);
-
-  printWords(ans);
-  freeArray(ans);
-  for (int i = 0; i < index; i++) {
-    free(nameArray[i]);
-  }
-  free(nameArray);
-  */
 
   catarray_t * ans = malloc(sizeof(*ans));
   ans->n = 0;
@@ -31,6 +16,7 @@ int main(int argc, char ** argv) {
   char ** nameArray = NULL;
   int index = 0;
   while ((len = getline(&curr, &linecapp, f)) >= 0) {
+    checkStep2(curr);
     char * name = extractName(curr);
     nameArray = realloc(nameArray, (index + 1) * sizeof(*nameArray));
     nameArray[index] = name;

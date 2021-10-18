@@ -14,6 +14,7 @@ int main(int argc, char ** argv) {
   size_t linecapp = 0;
   char * curr = NULL;
   while ((len = getline(&curr, &linecapp, f)) >= 0) {
+    checkStep1(curr);
     wordarray_t * line;
     wordarray_t * catname;
     line = split(curr);

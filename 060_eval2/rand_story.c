@@ -2,6 +2,29 @@
 
 #include "provided.h"
 
+void checkStep1(char * curr) {
+  int num = 0;
+  char * p = curr;
+  while (*p != '\0') {
+    if (*p == '_') {
+      num++;
+    }
+    p++;
+  }
+
+  if (num % 2 != 0) {
+    fprintf(stderr, "Invalid format of underscore!");
+    exit(EXIT_FAILURE);
+  }
+}
+
+void checkStep2(char * curr) {
+  if (strchr(curr, ':') == NULL) {
+    fprintf(stderr, "Invalid format of input file! one line has no colon!");
+    exit(EXIT_FAILURE);
+  }
+}
+
 wordarray_t * split(char * line) {
   wordarray_t * arr = malloc(sizeof(*arr));
   char * word;
@@ -71,71 +94,9 @@ wordarray_t * replace(wordarray_t * arr, wordarray_t * catarr) {
 
 wordarray_t * replaceAll(wordarray_t * arr,
                          wordarray_t * catarr,
-                         catarray_t * ans,
+                         catarray_t ** ans,
                          category_t ** usedWords,
                          int rm) {
-  (*usedWords)->name = NULL;
-  (*usedWords)->words = NULL;
-  (*usedWords)->n_words = 0;
-  for (size_t i = 0; i < catarr->n; i++) {
-    char * result;
-    char * p1 = strchr(arr->wordArr[catarr->mark[i]], '_');
-    char * p2 = strchr(p1 + 1, '_');
-    char * rest = p2 + 1;
-    int restlen = strlen(rest);
-    const char * new;
-    if (atoi(catarr->wordArr[i]) == 0) {
-      new = chooseWord(catarr->wordArr[i], ans);
-      (*usedWords)->words =
-          realloc((*usedWords)->words,
-                  ((*usedWords)->n_words + 1) * sizeof(*(*usedWords)->words));
-      (*usedWords)->words[(*usedWords)->n_words] = strdup(new);
-      (*usedWords)->n_words++;
-      if (rm == 1) {
-        for (size_t m = 0; m < ans->n; m++) {
-          if (strcmp(ans->arr[m].name, catarr->wordArr[i]) == 0) {
-            for (size_t n = 0; n < ans->arr[m].n_words; n++) {
-              if (strcmp(ans->arr[m].words[n], new) == 0) {
-                free(ans->arr[m].words[n]);
-                ans->arr[m].n_words--;
-              }
-            }
-          }
-        }
-      }
-    }
-    else if (atoi(catarr->wordArr[i]) >= 1 &&
-             atoi(catarr->wordArr[i]) <= (int)(*usedWords)->n_words) {
-      new = (*usedWords)->words[(*usedWords)->n_words - atoi(catarr->wordArr[i])];
-      (*usedWords)->words =
-          realloc((*usedWords)->words,
-                  ((*usedWords)->n_words + 1) * sizeof(*(*usedWords)->words));
-      (*usedWords)->words[(*usedWords)->n_words] = strdup(new);
-      (*usedWords)->n_words++;
-    }
-
-    int newlen = strlen(new);
-    if (restlen == 0) {
-      result = strdup(new);
-    }
-    else {
-      result = malloc((restlen + newlen + 1) * sizeof(*result));
-      strncpy(result, new, newlen + 1);
-      result = strcat(result, rest);
-    }
-
-    free(arr->wordArr[catarr->mark[i]]);
-    arr->wordArr[catarr->mark[i]] = result;
-  }
-
-  return arr;
-}
-
-wordarray_t * replaceAll2(wordarray_t * arr,
-                          wordarray_t * catarr,
-                          catarray_t ** ans,
-                          category_t ** usedWords,
-                          int rm) {
   (*usedWords)->name = NULL;
   (*usedWords)->words = NULL;
   (*usedWords)->n_words = 0;

@@ -7,6 +7,8 @@
 
 #include "provided.h"
 //any functions you want your main to use
+void checkStep1(char * curr);
+void checkStep2(char * curr);
 wordarray_t * split(char * line);
 wordarray_t * searchCategory(wordarray_t * arr);
 char * replaceOne(char * old, char * word);
@@ -23,13 +25,8 @@ void freeArray(catarray_t * ans);
 catarray_t * storeWords(FILE * f, char *** nameArray, catarray_t * ans, int * index);
 wordarray_t * replaceAll(wordarray_t * arr,
                          wordarray_t * catarr,
-                         catarray_t * ans,
+                         catarray_t ** ans,
                          category_t ** usedWords,
                          int rm);
-wordarray_t * replaceAll2(wordarray_t * arr,
-                          wordarray_t * catarr,
-                          catarray_t ** ans,
-                          category_t ** usedWords,
-                          int rm);
 
 #endif

@@ -43,7 +43,7 @@ int main(int argc, char ** argv) {
       wordarray_t * catname;
       line = split(curr2);
       catname = searchCategory(line);
-      line = replaceAll(line, catname, ans, &usedWords, rm);
+      line = replaceAll(line, catname, &ans, &usedWords, rm);
       print(line);
       freeWordArr(line);
       freeWordArr(catname);
@@ -112,7 +112,7 @@ int main(int argc, char ** argv) {
         wordarray_t * catname;
         line = split(curr2);
         catname = searchCategory(line);
-        line = replaceAll2(line, catname, &ans, &usedWords, rm);
+        line = replaceAll(line, catname, &ans, &usedWords, rm);
         print(line);
         freeWordArr(line);
         freeWordArr(catname);
