@@ -58,11 +58,7 @@ int main(int argc, char ** argv) {
   }
   free(curr2);
 
-  for (int i = 0; i < index; i++) {
-    free(nameArray[i]);
-  }
-  free(nameArray);
-
+  freeNameArray(nameArray, index);
   freeArray(ans);
   fclose(fwords);
   fclose(fstory);

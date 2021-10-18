@@ -31,11 +31,7 @@ int main(int argc, char ** argv) {
   free(curr);
   printWords(ans);
   freeArray(ans);
-  for (int i = 0; i < index; i++) {
-    free(nameArray[i]);
-  }
-  free(nameArray);
-
+  freeNameArray(nameArray, index);
   if (fclose(f) != 0) {
     fprintf(stderr, "Can not close the file");
     exit(EXIT_FAILURE);

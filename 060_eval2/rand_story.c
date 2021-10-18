@@ -239,56 +239,25 @@ void freeArray(catarray_t * ans) {
       }
     }
     free(ans->arr[i].words);
-    // free(ans->arr[i].name);
   }
 
   free(ans->arr);
   free(ans);
 }
 
-catarray_t * storeWords(FILE * f, char *** nameArray, catarray_t * ans, int * index) {
-  char * curr = NULL;
-  int len = 0;
-  size_t linecapp = 0;
-  while ((len = getline(&curr, &linecapp, f)) >= 0) {
-    char * name = extractName(curr);
-    *nameArray = realloc(*nameArray, (*index + 1) * sizeof(**nameArray));
-    *nameArray[*index] = name;
-    *index = *index + 1;
-    char * word = extractWord(curr);
-    if (containName(name, ans) == 0) {
-      addName(name, ans);
-    }
-    addWords(word, name, ans);
+void freeNameArray(char ** nameArray, int index) {
+  for (int i = 0; i < index; i++) {
+    free(nameArray[i]);
   }
 
-  free(curr);
-  return ans;
-}
-/*
-char ** storeNameArr(FILE * f, char ** nameArray, catarray * ans) {
-  char * curr = NULL;
-  int len = 0;
-  size_t linecapp = 0;
-  char ** nameArray = NULL;
-  int index = 0;
-  while ((len = getline(&curr, &linecapp, f)) >= 0) {
-    char * name = extractName(curr);
-    nameArray = realloc(nameArray, (index + 1) * sizeof(*nameArray));
-    nameArray[index] = name;
-    index++;
-  }
-  return nameArray;
+  free(nameArray);
 }
 
-int storeNameArrsz(FILE * f) {
-  char * curr = NULL;
-  int len = 0;
-  size_t linecapp = 0;
-  int index = 0;
-  while ((len = getline(&curr, &linecapp, f)) >= 0) {
-    index++;
+void freeUsedWords(category_t * usedWords) {
+  for (size_t i = 0; i < usedWords->n_words; i++) {
+    free(usedWords->words[i]);
   }
-  return index;
+  free(usedWords->words);
+  free(usedWords);
+  usedWords = NULL;
 }
-*/

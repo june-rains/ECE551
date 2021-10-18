@@ -22,6 +22,8 @@ int containName(char * name, catarray_t * ans);
 void addName(char * name, catarray_t * ans);
 void addWords(char * word, char * name, catarray_t * ans);
 void freeArray(catarray_t * ans);
+void freeNameArray(char ** nameArray, int index);
+void freeUsedWords(category_t * usedWords);
 catarray_t * storeWords(FILE * f, char *** nameArray, catarray_t * ans, int * index);
 wordarray_t * replaceAll(wordarray_t * arr,
                          wordarray_t * catarr,

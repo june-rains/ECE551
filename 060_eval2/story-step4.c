@@ -61,11 +61,7 @@ int main(int argc, char ** argv) {
     }
     free(curr2);
 
-    for (int i = 0; i < index; i++) {
-      free(nameArray[i]);
-    }
-    free(nameArray);
-
+    freeNameArray(nameArray, index);
     freeArray(ans);
     fclose(fwords);
     fclose(fstory);
@@ -120,23 +116,13 @@ int main(int argc, char ** argv) {
         print(line);
         freeWordArr(line);
         freeWordArr(catname);
-
         line = NULL;
         catname = NULL;
-        for (size_t i = 0; i < usedWords->n_words; i++) {
-          free(usedWords->words[i]);
-        }
-        free(usedWords->words);
-        free(usedWords);
-        usedWords = NULL;
+        freeUsedWords(usedWords);
       }
+
       free(curr2);
-
-      for (int i = 0; i < index; i++) {
-        free(nameArray[i]);
-      }
-      free(nameArray);
-
+      freeNameArray(nameArray, index);
       freeArray(ans);
       fclose(fwords);
       fclose(fstory);
