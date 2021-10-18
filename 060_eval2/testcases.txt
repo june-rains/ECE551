@@ -13,6 +13,7 @@ story-step2 wordstest2.txt
 story-step2 wordstest3.txt
 story-step3 words.txt story.txt
 story-step3 words.txt story2.txt
+story-step3 words.txt storytest3.txt
 story-step4 words.txt story.txt
 story-step4 words.txt story2.txt
 story-step4 -n words.txt story.txt
