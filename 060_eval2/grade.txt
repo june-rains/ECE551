@@ -1,6 +1,6 @@
-Grading at 10/18/2021:14:15:29.162656
-For commit ID 8e7e8823f9a5009ca931f9e88ff048609134bd81
-Grading at Mon Oct 18 10:15:16 EDT 2021
+Grading at 10/18/2021:14:22:21.045902
+For commit ID cc47e9be7d5ab7973086e08a4903e12e2b6864f5
+Grading at Mon Oct 18 10:22:08 EDT 2021
 Running your test cases
 
 Compiling story-step1
@@ -57,6 +57,9 @@ gcc -o story-step1 story-step1.o rand_story.o provided.o
 rm story-step1.o
 +-----------------------------------------------------------------------+
 Test case story-step1 story.txt
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case story-step1 storytest2.txt
 Your file matched the expected output
 
 Compiling story-step2
