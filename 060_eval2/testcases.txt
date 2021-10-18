@@ -1,4 +1,5 @@
 #error
+story-step1 storytest1.txt
 story-step2 story.txt
 story-step2 wordstest1.txt
 #success
