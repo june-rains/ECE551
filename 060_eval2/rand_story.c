@@ -97,9 +97,11 @@ wordarray_t * replaceAll(wordarray_t * arr,
                          catarray_t ** ans,
                          category_t ** usedWords,
                          int rm) {
+  /*
   (*usedWords)->name = NULL;
   (*usedWords)->words = NULL;
   (*usedWords)->n_words = 0;
+  */
   for (size_t i = 0; i < catarr->n; i++) {
     char * result;
     char * p1 = strchr(arr->wordArr[catarr->mark[i]], '_');

@@ -35,9 +35,13 @@ int main(int argc, char ** argv) {
   int len2 = 0;
   size_t linecapp2 = 0;
   char * curr2 = NULL;
+  category_t * usedWords = malloc(sizeof(*usedWords));
+  usedWords->name = NULL;
+  usedWords->words = NULL;
+  usedWords->n_words = 0;
   while ((len2 = getline(&curr2, &linecapp2, fstory)) >= 0) {
     checkStep1(curr2);
-    category_t * usedWords = malloc(sizeof(*usedWords));
+    //category_t * usedWords = malloc(sizeof(*usedWords));
     wordarray_t * line;
     wordarray_t * catname;
     line = split(curr2);
@@ -49,13 +53,21 @@ int main(int argc, char ** argv) {
 
     line = NULL;
     catname = NULL;
+    /*
     for (size_t i = 0; i < usedWords->n_words; i++) {
       free(usedWords->words[i]);
     }
     free(usedWords->words);
     free(usedWords);
     usedWords = NULL;
+    */
   }
+  for (size_t i = 0; i < usedWords->n_words; i++) {
+    free(usedWords->words[i]);
+  }
+  free(usedWords->words);
+  free(usedWords);
+  //usedWords = NULL;
   free(curr2);
 
   freeNameArray(nameArray, index);
