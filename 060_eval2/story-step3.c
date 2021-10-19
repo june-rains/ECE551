@@ -41,7 +41,6 @@ int main(int argc, char ** argv) {
   usedWords->n_words = 0;
   while ((len2 = getline(&curr2, &linecapp2, fstory)) >= 0) {
     checkStep1(curr2);
-    //category_t * usedWords = malloc(sizeof(*usedWords));
     wordarray_t * line;
     wordarray_t * catname;
     line = split(curr2);
@@ -53,23 +52,9 @@ int main(int argc, char ** argv) {
 
     line = NULL;
     catname = NULL;
-    /*
-    for (size_t i = 0; i < usedWords->n_words; i++) {
-      free(usedWords->words[i]);
-    }
-    free(usedWords->words);
-    free(usedWords);
-    usedWords = NULL;
-    */
   }
-  for (size_t i = 0; i < usedWords->n_words; i++) {
-    free(usedWords->words[i]);
-  }
-  free(usedWords->words);
-  free(usedWords);
-  //usedWords = NULL;
+  freeUsedWords(usedWords);
   free(curr2);
-
   freeNameArray(nameArray, index);
   freeArray(ans);
   fclose(fwords);

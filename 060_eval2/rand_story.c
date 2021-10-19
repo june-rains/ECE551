@@ -97,11 +97,6 @@ wordarray_t * replaceAll(wordarray_t * arr,
                          catarray_t ** ans,
                          category_t ** usedWords,
                          int rm) {
-  /*
-  (*usedWords)->name = NULL;
-  (*usedWords)->words = NULL;
-  (*usedWords)->n_words = 0;
-  */
   for (size_t i = 0; i < catarr->n; i++) {
     char * result;
     char * p1 = strchr(arr->wordArr[catarr->mark[i]], '_');
@@ -134,11 +129,6 @@ wordarray_t * replaceAll(wordarray_t * arr,
                     realloc((*ans)->arr[m].words,
                             ((*ans)->arr[m].n_words - 1) * sizeof(*(*ans)->arr[m].words));
                 (*ans)->arr[m].n_words--;
-                /*
-                free((*ans)->arr[m].words[n]);
-                (*ans)->arr[m].words[n] = NULL;
-                (*ans)->arr[m].n_words--;
-		*/
               }
             }
           }
@@ -254,16 +244,7 @@ void freeArray(catarray_t * ans) {
   for (size_t i = 0; i < ans->n; i++) {
     for (size_t j = 0; j < ans->arr[i].n_words; j++) {
       free(ans->arr[i].words[j]);
-      /*
-      if (ans->arr[i].words[j] == NULL) {
-        ans->arr[i].n_words++;
-      }
-      else {
-        free(ans->arr[i].words[j]);
-      }
-      */
     }
-
     free(ans->arr[i].words);
   }
 
@@ -285,5 +266,4 @@ void freeUsedWords(category_t * usedWords) {
   }
   free(usedWords->words);
   free(usedWords);
-  usedWords = NULL;
 }
