@@ -22,3 +22,4 @@ story-step4 -n words.txt story2.txt
 story-step4 -n wordstest2.txt story2.txt 
 story-step4  words.txt storytest5.txt
 story-step3 words.txt storytest4.txt
+story-step3 words.txt storytest6.txt
