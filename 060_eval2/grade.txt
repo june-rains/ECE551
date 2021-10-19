@@ -1,6 +1,6 @@
-Grading at 10/18/2021:23:58:35.283317
-For commit ID 8edec19f1ed69386ee7dee903af7f311efef8566
-Grading at Mon Oct 18 19:58:17 EDT 2021
+Grading at 10/19/2021:00:04:17.007064
+For commit ID 72f782a482383de90a35c131c410aac8ee168a18
+Grading at Mon Oct 18 20:03:58 EDT 2021
 Running your test cases
 
 Compiling story-step1
@@ -145,6 +145,9 @@ gcc -o story-step3 story-step3.o rand_story.o provided.o
 rm story-step3.o
 +-----------------------------------------------------------------------+
 Test case story-step3 words.txt storytest4.txt
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case story-step3 words.txt storytest6.txt
 Your file matched the expected output
 
 You have FAILED one or more of your test cases
