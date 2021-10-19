@@ -5,13 +5,13 @@ int main(int argc, char ** argv) {
     fprintf(stderr, "Invalid use of arguments!");
     exit(EXIT_FAILURE);
   }
-
+  /********NO ARGUMENTS -n*********/
   if (argc == 3) {
     int rm = 0;
     FILE * fwords = readFILE(argv[1]);
     FILE * fstory = readFILE(argv[2]);
 
-    //form the category
+    /**********STEP 2 FORM THE CATEGORY***********/
     catarray_t * ans = malloc(sizeof(*ans));
     ans->n = 0;
     ans->arr = NULL;
@@ -34,7 +34,7 @@ int main(int argc, char ** argv) {
     }
     free(curr1);
 
-    //form the story
+    /*********STEP 1 FORM THE STORY***********/
     int len2 = 0;
     size_t linecapp2 = 0;
     char * curr2 = NULL;
@@ -58,14 +58,13 @@ int main(int argc, char ** argv) {
     }
     freeUsedWords(usedWords);
     free(curr2);
-
     freeNameArray(nameArray, index);
     freeArray(ans);
     fclose(fwords);
     fclose(fstory);
     return EXIT_SUCCESS;
   }
-
+  /********ONE MORE ARGUMENTS -n*********/
   if (argc == 4) {
     if (strcmp(argv[1], "-n") != 0) {
       fprintf(stderr, "Invalid use of arguments!");
@@ -76,7 +75,7 @@ int main(int argc, char ** argv) {
       FILE * fwords = readFILE(argv[2]);
       FILE * fstory = readFILE(argv[3]);
 
-      //form the category
+      /**********STEP 2 FORM THE CATEGORY***********/
       catarray_t * ans = malloc(sizeof(*ans));
       ans->n = 0;
       ans->arr = NULL;
@@ -99,7 +98,7 @@ int main(int argc, char ** argv) {
       }
       free(curr1);
 
-      //form the story
+      /*********STEP 1 FORM THE STORY***********/
       int len2 = 0;
       size_t linecapp2 = 0;
       char * curr2 = NULL;

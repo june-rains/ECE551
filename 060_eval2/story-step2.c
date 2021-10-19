@@ -16,7 +16,10 @@ int main(int argc, char ** argv) {
   char ** nameArray = NULL;
   int index = 0;
   while ((len = getline(&curr, &linecapp, f)) >= 0) {
+    /********ERROR CASE CHECK******/
     checkStep2(curr);
+
+    /********FORM THE CATEGORY**********/
     char * name = extractName(curr);
     nameArray = realloc(nameArray, (index + 1) * sizeof(*nameArray));
     nameArray[index] = name;
@@ -29,9 +32,14 @@ int main(int argc, char ** argv) {
   }
 
   free(curr);
+
+  /*********PRINT THE CATEGORY**********/
   printWords(ans);
+
+  /********FREE OPERATION*********/
   freeArray(ans);
   freeNameArray(nameArray, index);
+
   if (fclose(f) != 0) {
     fprintf(stderr, "Can not close the file");
     exit(EXIT_FAILURE);

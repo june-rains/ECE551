@@ -14,13 +14,19 @@ int main(int argc, char ** argv) {
   size_t linecapp = 0;
   char * curr = NULL;
   while ((len = getline(&curr, &linecapp, f)) >= 0) {
+    /********ERROR CASE CHECK******/
     checkStep1(curr);
+
+    /********FORM THE STORY AND PRINT IT TO STDOUT**********/
+    /* wordarray_t is a struct that I build to store each word in one line , details in provided.h */
     wordarray_t * line;
     wordarray_t * catname;
     line = split(curr);
     catname = searchCategory(line);
     line = replace(line, catname);
     print(line);
+
+    /********FREE OPERATION*******/
     freeWordArr(line);
     freeWordArr(catname);
     line = NULL;

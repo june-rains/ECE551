@@ -8,7 +8,7 @@ int main(int argc, char ** argv) {
   FILE * fwords = readFILE(argv[1]);
   FILE * fstory = readFILE(argv[2]);
 
-  //form the category
+  /**********STEP 2 FORM THE CATEGORY***********/
   catarray_t * ans = malloc(sizeof(*ans));
   ans->n = 0;
   ans->arr = NULL;
@@ -31,14 +31,17 @@ int main(int argc, char ** argv) {
   }
   free(curr1);
 
-  //form the story
+  /*********STEP 1 FORM THE STORY***********/
   int len2 = 0;
   size_t linecapp2 = 0;
   char * curr2 = NULL;
+
+  /*********NEW FUNCTION USEDWORDS**********/
   category_t * usedWords = malloc(sizeof(*usedWords));
   usedWords->name = NULL;
   usedWords->words = NULL;
   usedWords->n_words = 0;
+
   while ((len2 = getline(&curr2, &linecapp2, fstory)) >= 0) {
     checkStep1(curr2);
     wordarray_t * line;
@@ -53,11 +56,21 @@ int main(int argc, char ** argv) {
     line = NULL;
     catname = NULL;
   }
+
+  /**********FREE OPERATION**********/
   freeUsedWords(usedWords);
   free(curr2);
   freeNameArray(nameArray, index);
   freeArray(ans);
-  fclose(fwords);
-  fclose(fstory);
+
+  if (fclose(fwords) != 0) {
+    fprintf(stderr, "Can not close the file");
+    exit(EXIT_FAILURE);
+  }
+
+  if (fclose(fstory) != 0) {
+    fprintf(stderr, "Can not close the file");
+    exit(EXIT_FAILURE);
+  }
   return EXIT_SUCCESS;
 }

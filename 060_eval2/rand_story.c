@@ -25,6 +25,7 @@ void checkStep2(char * curr) {
   }
 }
 
+/******use this function to split one line into pieces of word******/
 wordarray_t * split(char * line) {
   wordarray_t * arr = malloc(sizeof(*arr));
   char * word;
@@ -43,7 +44,7 @@ wordarray_t * split(char * line) {
   }
   return arr;
 }
-
+/**********use this function to search category in one line*********/
 wordarray_t * searchCategory(wordarray_t * arr) {
   wordarray_t * ans = malloc(sizeof(*ans));
   ans->wordArr = NULL;
@@ -64,6 +65,7 @@ wordarray_t * searchCategory(wordarray_t * arr) {
   return ans;
 }
 
+/**********use this function to replace category name with "cat"**********/
 char * replaceOne(char * old, char * word) {
   char * result;
   char * p1 = strchr(word, '_');
@@ -83,6 +85,7 @@ char * replaceOne(char * old, char * word) {
   return result;
 }
 
+/***********use this function to replace all the category name in one line************/
 wordarray_t * replace(wordarray_t * arr, wordarray_t * catarr) {
   for (size_t i = 0; i < catarr->n; i++) {
     char * new = replaceOne(catarr->wordArr[i], arr->wordArr[catarr->mark[i]]);
@@ -92,6 +95,7 @@ wordarray_t * replace(wordarray_t * arr, wordarray_t * catarr) {
   return arr;
 }
 
+/***********use this function to replace all the category name with reference or chooseword***********/
 wordarray_t * replaceAll(wordarray_t * arr,
                          wordarray_t * catarr,
                          catarray_t ** ans,
@@ -104,6 +108,7 @@ wordarray_t * replaceAll(wordarray_t * arr,
     char * rest = p2 + 1;
     int restlen = strlen(rest);
     const char * new = NULL;
+    /***************CATEGORY WITH NO REFERENCE NUMBER********/
     if (atoi(catarr->wordArr[i]) == 0) {
       new = strdup(chooseWord(catarr->wordArr[i], *ans));
       (*usedWords)->words =
@@ -111,6 +116,8 @@ wordarray_t * replaceAll(wordarray_t * arr,
                   ((*usedWords)->n_words + 1) * sizeof(*(*usedWords)->words));
       (*usedWords)->words[(*usedWords)->n_words] = strdup(new);
       (*usedWords)->n_words++;
+
+      /*************IF THERE HAS -n ARGUMENTS************/
       if (rm == 1) {
         for (size_t m = 0; m < (*ans)->n; m++) {
           if (strcmp((*ans)->arr[m].name, catarr->wordArr[i]) == 0) {
@@ -135,6 +142,8 @@ wordarray_t * replaceAll(wordarray_t * arr,
         }
       }
     }
+
+    /***************CATEGORY WITH VALID REFERENCE NUMBER***********/
     else if (atoi(catarr->wordArr[i]) >= 1 &&
              atoi(catarr->wordArr[i]) <= (int)(*usedWords)->n_words) {
       new = strdup((*usedWords)->words[(*usedWords)->n_words - atoi(catarr->wordArr[i])]);
@@ -145,11 +154,13 @@ wordarray_t * replaceAll(wordarray_t * arr,
       (*usedWords)->n_words++;
     }
 
+    /***************CATEGORY WITH INVALID REFERENCE NUMBER*********/
     else {
       fprintf(stderr, "Invalid format of the category reference number!");
       exit(EXIT_FAILURE);
     }
 
+    /****************FORM THE FINAL REPLACE STORY***************/
     int newlen = strlen(new);
     if (restlen == 0) {
       result = strdup(new);
