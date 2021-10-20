@@ -1,6 +1,6 @@
-Grading at 10/19/2021:19:53:56.144301
-For commit ID 68a2edd71b2df2c4c981b70097e34493921490b6
-Grading at Tue Oct 19 15:53:38 EDT 2021
+Grading at 10/20/2021:00:34:03.058141
+For commit ID 7dcc8add0b9e31c2c835cd9a74379b30b396d420
+Grading at Tue Oct 19 20:33:42 EDT 2021
 Running your test cases
 
 Compiling story-step1
@@ -34,6 +34,14 @@ gcc -o story-step3 story-step3.o rand_story.o provided.o
 rm story-step3.o
 +-----------------------------------------------------------------------+
 Test case story-step3 words.txt storytest1.txt
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case story-step3 words.txt storytest8.txt
+Once upon a time, there was a walrus. This walrus lived in a very
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case story-step3 words.txt storytest9.txt
+Once upon a time, there was a walrus. This walrus lived in a very
 Your program successfully indicated a failure case
 
 Compiling story-step4
@@ -134,6 +142,9 @@ Test case story-step3 words.txt storytest6.txt
 Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case story-step3 words.txt storytest3.txt
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case story-step3 words.txt storytest7.txt
 Your file matched the expected output
 
 You have PASSED all of your test cases
