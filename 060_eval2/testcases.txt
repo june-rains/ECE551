@@ -3,6 +3,8 @@ story-step1 storytest1.txt
 story-step2 story.txt
 story-step2 wordstest1.txt
 story-step3 words.txt storytest1.txt
+story-step3 words.txt storytest8.txt
+story-step3 words.txt storytest9.txt
 story-step4 words.txt storytest1.txt
 story-step4 -n words.txt storytest1.txt
 story-step4 -n words.txt storytest5.txt
@@ -23,3 +25,4 @@ story-step4  words.txt storytest5.txt
 story-step3 words.txt storytest4.txt
 story-step3 words.txt storytest6.txt
 story-step3 words.txt storytest3.txt
+story-step3 words.txt storytest7.txt
