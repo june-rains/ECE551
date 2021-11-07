@@ -1,30 +1,15 @@
-==37337== Memcheck, a memory error detector
-==37337== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==37337== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==37337== Command: ./test-lls
-==37337== Parent PID: 37336
-==37337== 
-==37337== 
-==37337== Process terminating with default action of signal 6 (SIGABRT)
-==37337==    at 0x541BF47: raise (raise.c:51)
-==37337==    by 0x541D8B0: abort (abort.c:79)
-==37337==    by 0x540D429: __assert_fail_base (assert.c:92)
-==37337==    by 0x540D4A1: __assert_fail (assert.c:101)
-==37337==    by 0x109DA9: Tester::testRemove() (in /home/cl580/ece551/091_tests_lls/test-lls)
-==37337==    by 0x108C54: main (in /home/cl580/ece551/091_tests_lls/test-lls)
-==37337== 
-==37337== HEAP SUMMARY:
-==37337==     in use at exit: 384 bytes in 16 blocks
-==37337==   total heap usage: 38 allocs, 22 frees, 73,743 bytes allocated
-==37337== 
-==37337== LEAK SUMMARY:
-==37337==    definitely lost: 0 bytes in 0 blocks
-==37337==    indirectly lost: 0 bytes in 0 blocks
-==37337==      possibly lost: 0 bytes in 0 blocks
-==37337==    still reachable: 384 bytes in 16 blocks
-==37337==         suppressed: 0 bytes in 0 blocks
-==37337== Reachable blocks (those to which a pointer was found) are not shown.
-==37337== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==37337== 
-==37337== For counts of detected and suppressed errors, rerun with: -v
-==37337== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==89035== Memcheck, a memory error detector
+==89035== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==89035== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==89035== Command: ./test-lls
+==89035== Parent PID: 89034
+==89035== 
+==89035== 
+==89035== HEAP SUMMARY:
+==89035==     in use at exit: 0 bytes in 0 blocks
+==89035==   total heap usage: 5 allocs, 5 frees, 72,800 bytes allocated
+==89035== 
+==89035== All heap blocks were freed -- no leaks are possible
+==89035== 
+==89035== For counts of detected and suppressed errors, rerun with: -v
+==89035== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

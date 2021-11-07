@@ -169,9 +169,11 @@ int main(void) {
   // write calls to your other test methods here
 
   t.testAddBack();
+
   t.testAssign();
   t.testAssign2();
   t.testCopy();
   t.testRemove();
+
   return EXIT_SUCCESS;
 }
