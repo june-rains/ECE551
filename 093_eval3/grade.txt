@@ -1,6 +1,6 @@
-Grading at 11/10/2021:03:11:48.521293
-For commit ID 2d30490e83989a089a43cbbf78e867b24412ad0c
-Grading at Tue Nov  9 22:11:37 EST 2021
+Grading at 11/10/2021:03:43:02.931348
+For commit ID e904ca6f535e23c41e6d789850759d2b73b63caa
+Grading at Tue Nov  9 22:42:52 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -17,37 +17,13 @@ Test case 2 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page2.txt
 Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case 3 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page3.txt
-22,24c22,24
-<  1. Go alone.
-<  2. Go to Denevieve for help.
-<  3. Go to Grew for help.
----
->  1. Go to Denevieve for help.
->  2. Go to Grew for help.
->  3. Go alone.
-Your file did not match the expected output
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case 4 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page4.txt
-26,28c26,28
-<  1. Go alone.
-<  2. Go to Denevieve for help.
-<  3. Go to Grew for help.
----
->  1. Go to Denevieve for help.
->  2. Go to Grew for help.
->  3. Go alone.
-Your file did not match the expected output
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case 5 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page5.txt
-18c18
-<  1. Bohemian Rhapsody, accompanied by the magestic call of a bald eagle
----
->  1. Silent Night, accompanied by raven calls
-20c20
-<  3. Silent Night, accompanied by raven calls
----
->  3. Bohemian Rhapsody, accompanied by the magestic call of a bald eagle
-Your file did not match the expected output
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case 6 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page1.txt
 Your file matched the expected output
@@ -63,7 +39,7 @@ Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case 10 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page5.txt
 Your file matched the expected output
-Step 1: Failed test cases as above
+Step 1: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step2
 rm -f *~ *.o cyoa-step1
