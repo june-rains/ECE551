@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
@@ -31,10 +32,16 @@ class normalPage : public Page {
 
   virtual void printChoices() {
     int index = 1;
+    std::vector<unsigned> intArray;
     for (std::map<unsigned, std::string>::iterator it = choices.begin();
          it != choices.end();
          ++it) {
-      std::cout << " " << index << ". " << it->second << '\n';
+      intArray.push_back(it->first);
+    }
+
+    std::sort(intArray.begin(), intArray.end());
+    for (size_t i = 0; i < choices.size(); i++) {
+      std::cout << " " << index << ". " << choices[intArray[i]] << '\n';
       index++;
     }
   }
