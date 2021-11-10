@@ -1,6 +1,6 @@
-Grading at 11/10/2021:02:33:23.780185
-For commit ID f8fc2b5f7d97cd2d93e0fc78971cceb9bf6a8154
-Grading at Tue Nov  9 21:33:13 EST 2021
+Grading at 11/10/2021:02:42:05.582516
+For commit ID 7e72ce67a8adb4c4429f6fb593c8f14291d5c3ce
+Grading at Tue Nov  9 21:41:54 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -11,32 +11,16 @@ g++ -o cyoa-step1 -ggdb3 cyoa-step1.o cyoa.o
 Compiled for step 1
 +-----------------------------------------------------------------------+
 Test case 1 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page1.txt
-22,24c22,24
-< 1. Choose the magic whistle.
-< 2. Choose the magic shoes.
-< 3. Choose the magic toaster.
----
->  1. Choose the magic whistle.
->  2. Choose the magic shoes.
->  3. Choose the magic toaster.
-Your file did not match the expected output
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case 2 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page2.txt
-22,24c22,24
-< 1. Go to Denevieve for help.
-< 2. Go to Grew for help.
-< 3. Go alone.
----
->  1. Go to Denevieve for help.
->  2. Go to Grew for help.
->  3. Go alone.
-Your file did not match the expected output
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case 3 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page3.txt
 22,24c22,24
-< 1. Go alone.
-< 2. Go to Denevieve for help.
-< 3. Go to Grew for help.
+<  1. Go alone.
+<  2. Go to Denevieve for help.
+<  3. Go to Grew for help.
 ---
 >  1. Go to Denevieve for help.
 >  2. Go to Grew for help.
@@ -45,9 +29,9 @@ Your file did not match the expected output
 +-----------------------------------------------------------------------+
 Test case 4 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page4.txt
 26,28c26,28
-< 1. Go alone.
-< 2. Go to Denevieve for help.
-< 3. Go to Grew for help.
+<  1. Go alone.
+<  2. Go to Denevieve for help.
+<  3. Go to Grew for help.
 ---
 >  1. Go to Denevieve for help.
 >  2. Go to Grew for help.
@@ -55,35 +39,21 @@ Test case 4 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page4.txt
 Your file did not match the expected output
 +-----------------------------------------------------------------------+
 Test case 5 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page5.txt
-18,20c18,20
-< 1. Bohemian Rhapsody, accompanied by the magestic call of a bald eagle
-< 2. Angels We Have Heard on High, accompanied by roosters crowing
-< 3. Silent Night, accompanied by raven calls
+18c18
+<  1. Bohemian Rhapsody, accompanied by the magestic call of a bald eagle
 ---
 >  1. Silent Night, accompanied by raven calls
->  2. Angels We Have Heard on High, accompanied by roosters crowing
+20c20
+<  3. Silent Night, accompanied by raven calls
+---
 >  3. Bohemian Rhapsody, accompanied by the magestic call of a bald eagle
 Your file did not match the expected output
 +-----------------------------------------------------------------------+
 Test case 6 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page1.txt
-13,15c13,15
-< 1. Try to sneak past the sleeping dragon
-< 2. Leave the dragon's cave and go home
-< 3. Stab the dragon in the neck
----
->  1. Try to sneak past the sleeping dragon
->  2. Leave the dragon's cave and go home
->  3. Stab the dragon in the neck
-Your file did not match the expected output
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case 7 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page2.txt
-8,9c8,9
-< 1. Pick up the ruby
-< 2. Pass the ruby to explore the rest of the hoard
----
->  1. Pick up the ruby
->  2. Pass the ruby to explore the rest of the hoard
-Your file did not match the expected output
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case 8 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page3.txt
 Your file matched the expected output
