@@ -24,27 +24,36 @@ class Page {
 
 class normalPage : public Page {
   std::map<unsigned, std::string> choices;
+  std::vector<std::string> navigation;
 
  public:
-  normalPage(std::vector<std::string> & ct, std::map<unsigned, std::string> & ch) :
+  normalPage(std::vector<std::string> & ct,
+             std::map<unsigned, std::string> & ch,
+             std::vector<std::string> & nav) :
       Page(ct),
-      choices(ch) {}
-
+      choices(ch),
+      navigation(nav) {}
   virtual void printChoices() {
     int index = 1;
-    std::vector<unsigned> intArray;
-    for (std::map<unsigned, std::string>::iterator it = choices.begin();
-         it != choices.end();
+    for (std::vector<std::string>::iterator it = navigation.begin();
+         it != navigation.end();
          ++it) {
-      intArray.push_back(it->first);
-    }
-
-    std::sort(intArray.begin(), intArray.end());
-    for (size_t i = 0; i < choices.size(); i++) {
-      std::cout << " " << index << ". " << choices[intArray[i]] << '\n';
+      std::cout << " " << index << ". " << *it << '\n';
       index++;
     }
   }
+
+  /*
+  virtual void printChoices() {
+    int index = 1;
+    for (std::map<unsigned, std::string>::iterator it = choices.begin();
+         it != choices.end();
+         ++it) {
+      std::cout << " " << index << ". " << it->second << '\n';
+      index++;
+    }
+  }
+  */
   virtual ~normalPage(){};
 };
 
@@ -77,3 +86,5 @@ std::vector<std::string> parseCont(std::ifstream & ifs);
 std::map<unsigned, std::string> parseChoice(std::vector<std::string> & nav);
 
 bool is_pageNormal(std::vector<std::string> & nav);
+
+std::vector<std::string> cutNav(std::vector<std::string> & nav);

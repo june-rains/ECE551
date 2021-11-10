@@ -112,3 +112,13 @@ bool is_pageNormal(std::vector<std::string> & nav) {
   }
   return normal;
 }
+
+std::vector<std::string> cutNav(std::vector<std::string> & nav) {
+  std::vector<std::string> navCont;
+
+  for (size_t i = 0; i < nav.size(); i++) {
+    int found = nav[i].find(':');
+    navCont.push_back(nav[i].substr(found + 1));
+  }
+  return navCont;
+}

@@ -20,14 +20,16 @@ int main(int argc, char ** argv) {
 
   std::vector<std::string> navigation = parseNav(ifsn);
   std::map<unsigned, std::string> choices;
+  std::vector<std::string> navCont;
   std::vector<std::string> contents = parseCont(ifsc);
   bool is_normal = is_pageNormal(navigation);
   if (is_normal) {
     choices = parseChoice(navigation);
+    navCont = cutNav(navigation);
   }
 
   if (is_normal) {
-    normalPage page(contents, choices);
+    normalPage page(contents, choices, navCont);
     page.printContents();
     std::cout << std::endl;
     std::cout << "What would you like to do?" << std::endl;
