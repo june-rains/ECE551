@@ -34,7 +34,7 @@ class normalPage : public Page {
     for (std::map<unsigned, std::string>::iterator it = choices.begin();
          it != choices.end();
          ++it) {
-      std::cout << index << ". " << it->second << '\n';
+      std::cout << " " << index << ". " << it->second << '\n';
       index++;
     }
   }
