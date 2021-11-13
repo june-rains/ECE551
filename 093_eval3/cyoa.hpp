@@ -3,6 +3,7 @@
 #include <fstream>
 #include <iostream>
 #include <map>
+#include <sstream>
 #include <string>
 #include <vector>
 
@@ -43,17 +44,7 @@ class normalPage : public Page {
     }
   }
 
-  /*
-  virtual void printChoices() {
-    int index = 1;
-    for (std::map<unsigned, std::string>::iterator it = choices.begin();
-         it != choices.end();
-         ++it) {
-      std::cout << " " << index << ". " << it->second << '\n';
-      index++;
-    }
-  }
-  */
+  virtual std::map<unsigned, std::string> getChoices() { return choices; };
   virtual ~normalPage(){};
 };
 
@@ -74,6 +65,8 @@ class winlosePage : public Page {
       std::cout << "Sorry, you have lost. Better luck next time!" << std::endl;
     }
   }
+
+  virtual std::string getChoices() { return choices; }
   virtual ~winlosePage(){};
 };
 
@@ -88,3 +81,9 @@ std::map<unsigned, std::string> parseChoice(std::vector<std::string> & nav);
 bool is_pageNormal(std::vector<std::string> & nav);
 
 std::vector<std::string> cutNav(std::vector<std::string> & nav);
+
+Page * makeOnePage(std::ifstream & ifsn, std::ifstream & ifsc);
+
+std::vector<Page *> makePages(int argc, char ** argv);
+
+void checkPages(std::vector<Page *> & p);

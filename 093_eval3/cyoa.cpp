@@ -122,3 +122,63 @@ std::vector<std::string> cutNav(std::vector<std::string> & nav) {
   }
   return navCont;
 }
+
+Page * makeOnePage(std::ifstream & ifsn, std::ifstream & ifsc) {
+  Page * newpage;
+  std::vector<std::string> navigation = parseNav(ifsn);
+  std::map<unsigned, std::string> choices;
+  std::vector<std::string> navCont;
+  std::vector<std::string> contents = parseCont(ifsc);
+  bool is_normal = is_pageNormal(navigation);
+  if (is_normal) {
+    choices = parseChoice(navigation);
+    navCont = cutNav(navigation);
+  }
+
+  if (is_normal) {
+    newpage = new normalPage(contents, choices, navCont);
+  }
+
+  else {
+    std::string nav = navigation[0];
+    newpage = new winlosePage(contents, nav);
+  }
+
+  return newpage;
+}
+
+std::vector<Page *> makePages(int argc, char ** argv) {
+  std::vector<Page *> Pages;
+  if (argc != 2) {
+    std::cerr << "Invalid Argument!\n";
+    exit(EXIT_FAILURE);
+  }
+
+  std::stringstream ss1;
+  ss1 << argv[1] << "/page1.txt";
+  const char * page1Name = ss1.str().c_str();
+  std::ifstream ifsn1(page1Name, std::ifstream::in);
+  std::ifstream ifsc1(page1Name, std::ifstream::in);
+
+  if (!ifsn1.is_open() || !ifsc1.is_open()) {
+    std::cerr << "Not have page1.txt!!\n";
+    exit(EXIT_FAILURE);
+  }
+
+  Pages.push_back(makeOnePage(ifsn1, ifsc1));
+
+  while (true) {
+    std::stringstream ss;
+    size_t index = 2;
+    ss << argv[1] << "/page" << index << ".txt";
+    const char * pageName = ss.str().c_str();
+    std::ifstream ifsn(pageName, std::ifstream::in);
+    std::ifstream ifsc(pageName, std::ifstream::in);
+
+    if (!ifsn.is_open() || !ifsc.is_open()) {
+      break;
+    }
+    Pages.push_back(makeOnePage(ifsn, ifsc));
+  }
+  return Pages;
+}
