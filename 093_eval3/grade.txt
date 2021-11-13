@@ -1,6 +1,6 @@
-Grading at 11/13/2021:19:05:56.853645
-For commit ID 1e5342318468243665c91fdd09a3938c8231110a
-Grading at Sat Nov 13 14:05:37 EST 2021
+Grading at 11/13/2021:19:15:20.863637
+For commit ID 479158f4beef333c00882757f59d399fc0dbac09
+Grading at Sat Nov 13 14:15:05 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -70,52 +70,14 @@ Input to story is
 
 +-----------------------------------------------------------------------+
 Test case 13 (success): cyoa-step2 /usr/local/ece551/cyoa/story2 < pregrader_input.txt
-25,29c25,28
-< That is not a valid choice, please try again
-< That is not a valid choice, please try again
-< The ruby is slippery, as though wet, and it glides through your fingers,
-< crashing hard into a golden plate, which clatters and crashes like a
-< cymbal.
----
-> A mountain of treasure rises before you, but two things are more
-> interesting than the sapphires and gold doubloons. To your right, on a
-> unique and elegant coat stand, rests a silvery cloak. To your left, atop a
-> grand marble desk, lies an ancient book with gold-leaf trim. 
-31c30
-< The dragon wakes up, roasts you like a marshmallow, and eats you whole.
----
-> What would you like to do?
-33c32,51
-< Sorry, you have lost. Better luck next time!
----
->  1. Put on the cloak
->  2. Open the book
-> The book is the original copy of All of Programming. You pore over its
-> contents, internalizing its every lesson.
-> 
-> Equipped with its knowledge, you sneak back to where the dragon is
-> sleeping. 
-> 
-> What would you like to do?
-> 
->  1. Exult in your skillset and go home
->  2. Stab the dragon in the neck
-> You return home, where your cats are very impressed with your programming
-> abilities.
-> 
-> So are the recruiters at Smaug, the world's most prestigious dragon
-> simulation company. They hire you to be their newest programmer on the
-> dragon vision team.
-> 
-> Congratulations! You have won. Hooray!
-Your file did not match the expected output
+Your file matched the expected output
 Input to story is
 3
 
 +-----------------------------------------------------------------------+
 Test case 14 (success): cyoa-step2 /usr/local/ece551/cyoa/story2 < pregrader_input.txt
-Valgrind reported memory errors
-Step 2: Failed test cases as above
+Your file matched the expected output
+Step 2: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step3
 rm -f *~ *.o cyoa-step1 cyoa-step2
