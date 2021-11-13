@@ -287,7 +287,7 @@ void getStory(std::vector<Page> & pageStory, unsigned pageNum) {
         std::cin >> badinput;
       }
       //!!!!!!!Corner Case!!!!!
-      else if (choice <= 0 || choice > (int)pageStory[pageNum].getNav().size()) {
+      else if (choice <= 0 || choice > (int)pageStory[pageNum - 1].getNav().size()) {
         std::cout << "That is not a valid choice, please try again\n";
         std::cin >> choice;
       }
