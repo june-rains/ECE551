@@ -1,4 +1,4 @@
-#include "cyoa2.hpp"
+#include "cyoa3.hpp"
 
 void Page::printContents() {
   std::vector<std::string>::iterator it = contents.begin();
@@ -296,5 +296,37 @@ void getStory(std::vector<Page> & pageStory, unsigned pageNum) {
     }
     std::vector<unsigned> choiceNum = pageStory[pageNum - 1].getChoiceNum();
     return getStory(pageStory, choiceNum[choice - 1]);
+  }
+}
+bool Page::isVisited() {
+  if (visited == true) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+void BFS(std::vector<Page> & p) {
+  p[0].setVisited();
+  std::queue<Page> myqueue;
+  myqueue.push(p[0]);
+  while (!myqueue.empty()) {
+    int currdepth = myqueue.front().getDepth();
+    std::vector<unsigned> choiceNum = myqueue.front().getChoiceNum();
+    myqueue.pop();
+    for (size_t i = 0; i < choiceNum.size(); i++) {
+      if (!p[choiceNum[i] - 1].isVisited()) {
+        p[choiceNum[i] - 1].setVisited();
+        p[choiceNum[i] - 1].setDepth(currdepth + 1);
+        myqueue.push(p[choiceNum[i] - 1]);
+      }
+    }
+  }
+}
+
+void printDepth(std::vector<Page> & p) {
+  for (size_t i = 0; i < p.size(); i++) {
+    std::cout << "Page " << i + 1 << ":" << p[i].getDepth() << std::endl;
   }
 }
