@@ -1,10 +1,10 @@
-Grading at 11/13/2021:19:15:20.863637
-For commit ID 479158f4beef333c00882757f59d399fc0dbac09
-Grading at Sat Nov 13 14:15:05 EST 2021
+Grading at 11/14/2021:05:07:15.089235
+For commit ID 7ec34f351f91b758152d7accbc8e11869d9df8de
+Grading at Sun Nov 14 00:06:56 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
-rm -f *~ *.o cyoa-step1 cyoa-step2
+rm -f *~ *.o cyoa-step1 cyoa-step2 cyoa-step3 
 g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -c cyoa-step1.cpp
 g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -c cyoa.cpp
 g++ -o cyoa-step1 -ggdb3 cyoa-step1.o cyoa.o
@@ -42,7 +42,7 @@ Your file matched the expected output
 Step 1: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step2
-rm -f *~ *.o cyoa-step1 cyoa-step2
+rm -f *~ *.o cyoa-step1 cyoa-step2 cyoa-step3 
 g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -c cyoa-step2.cpp
 g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -c cyoa2.cpp
 g++ -o cyoa-step2 -ggdb3 cyoa-step2.o cyoa2.o
@@ -80,12 +80,20 @@ Your file matched the expected output
 Step 2: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step3
-rm -f *~ *.o cyoa-step1 cyoa-step2
-The code did not compile!
-Did not compile for step 3
+rm -f *~ *.o cyoa-step1 cyoa-step2 cyoa-step3 
+g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -c cyoa-step3.cpp
+g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -c cyoa3.cpp
+g++ -o cyoa-step3 -ggdb3 cyoa-step3.o cyoa3.o
++-----------------------------------------------------------------------+
+Test case 15 (success): cyoa-step3 /usr/local/ece551/cyoa/story1
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case 16 (success): cyoa-step3 /usr/local/ece551/cyoa/story2
+Your file matched the expected output
+Step 3: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step4
-rm -f *~ *.o cyoa-step1 cyoa-step2
+rm -f *~ *.o cyoa-step1 cyoa-step2 cyoa-step3 
 The code did not compile!
 Did not compile for step 4
 Running your test cases
