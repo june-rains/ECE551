@@ -330,3 +330,61 @@ void printDepth(std::vector<Page> & p) {
     std::cout << "Page " << i + 1 << ":" << p[i].getDepth() << std::endl;
   }
 }
+
+void DFS(std::vector<Page> & p) {
+  p[0].setVisited();
+  std::stack<Page> mystack;
+  mystack.push(p[0]);
+  while (!mystack.empty()) {
+    int currNum = mystack.top().getpageNum();
+    Page * curr = &p[currNum - 1];
+
+    std::vector<unsigned> choiceNum = mystack.top().getChoiceNum();
+    mystack.pop();
+    for (size_t i = 0; i < choiceNum.size(); i++) {
+      if (p[choiceNum[i] - 1].is_pageWin()) {
+        p[choiceNum[i] - 1].setPrev(curr);
+        p[choiceNum[i] - 1].setChoice(i + 1);
+        p[choiceNum[i] - 1].setpageNum(choiceNum[i]);
+        printSolution(&p[choiceNum[i] - 1]);
+        continue;
+      }
+
+      if (!p[choiceNum[i] - 1].isVisited()) {
+        p[choiceNum[i] - 1].setVisited();
+        p[choiceNum[i] - 1].setPrev(curr);
+        p[choiceNum[i] - 1].setChoice(i + 1);
+        p[choiceNum[i] - 1].setpageNum(choiceNum[i]);
+        mystack.push(p[choiceNum[i] - 1]);
+      }
+    }
+  }
+}
+
+bool Page::is_pageWin() {
+  bool win = false;
+  std::string strWin("WIN");
+  if ((navigation.size() == 1) && ((navigation[0].compare(strWin) == 0))) {
+    win = true;
+  }
+  return win;
+}
+
+void printSolution(Page * p) {
+  std::vector<Page *> pageSol;
+  Page * curr = p;
+  while (curr->getPrev() != NULL) {
+    pageSol.push_back(curr);
+    curr = curr->getPrev();
+  }
+  pageSol.push_back(curr);
+  std::vector<Page *>::iterator it_s = pageSol.begin();
+  std::vector<Page *>::iterator it_e = pageSol.end();
+  std::reverse(it_s, it_e);
+
+  int pathlen = pageSol.size();
+  for (int i = 0; i < pathlen - 1; i++) {
+    std::cout << pageSol[i]->getpageNum() << "(" << pageSol[i + 1]->getChoice() << "),";
+  }
+  std::cout << pageSol[pathlen - 1]->getpageNum() << "(win)\n";
+}

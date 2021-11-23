@@ -1,8 +1,10 @@
+#include <algorithm>
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
 #include <queue>
 #include <sstream>
+#include <stack>
 #include <string>
 #include <vector>
 
@@ -12,6 +14,7 @@ class Page {
   bool visited;
   int depth;
   int userChoice;
+  int pageNum;
   Page * prev;
 
  public:
@@ -21,12 +24,14 @@ class Page {
       visited(false),
       depth(0),
       userChoice(0),
+      pageNum(1),
       prev(NULL) {}
   void printPages();
   void printNav();
   void printContents();
   std::vector<std::string> parseNav();
   bool is_pageNormal();
+  bool is_pageWin();
   std::vector<std::string> getNav() const { return navigation; }
   std::vector<unsigned> getChoiceNum();
   void setVisited() { visited = true; }
@@ -34,7 +39,11 @@ class Page {
   void setDepth(int d) { depth = d; }
   int getDepth() { return depth; }
   void setChoice(int d) { userChoice = d; }
+  int getChoice() { return userChoice; }
   void setPrev(Page * p) { prev = p; }
+  Page * getPrev() { return prev; }
+  void setpageNum(int d) { pageNum = d; }
+  int getpageNum() { return pageNum; }
   ~Page() {}
 };
 
@@ -54,4 +63,4 @@ void printDepth(std::vector<Page> & p);
 
 void DFS(std::vector<Page> & p);
 
-void printSolution(std::vector<Page> & p);
+void printSolution(Page * p);
