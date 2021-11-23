@@ -1,10 +1,10 @@
-Grading at 11/14/2021:05:07:15.089235
-For commit ID 7ec34f351f91b758152d7accbc8e11869d9df8de
-Grading at Sun Nov 14 00:06:56 EST 2021
+Grading at 11/23/2021:01:08:36.526546
+For commit ID 31bd0e9b80449b5e978c98ae677b24f0de03496e
+Grading at Mon Nov 22 20:08:14 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
-rm -f *~ *.o cyoa-step1 cyoa-step2 cyoa-step3 
+rm -f *~ *.o cyoa-step1 cyoa-step2 cyoa-step3  cyoa-step4
 g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -c cyoa-step1.cpp
 g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -c cyoa.cpp
 g++ -o cyoa-step1 -ggdb3 cyoa-step1.o cyoa.o
@@ -42,7 +42,7 @@ Your file matched the expected output
 Step 1: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step2
-rm -f *~ *.o cyoa-step1 cyoa-step2 cyoa-step3 
+rm -f *~ *.o cyoa-step1 cyoa-step2 cyoa-step3  cyoa-step4
 g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -c cyoa-step2.cpp
 g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -c cyoa2.cpp
 g++ -o cyoa-step2 -ggdb3 cyoa-step2.o cyoa2.o
@@ -80,7 +80,7 @@ Your file matched the expected output
 Step 2: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step3
-rm -f *~ *.o cyoa-step1 cyoa-step2 cyoa-step3 
+rm -f *~ *.o cyoa-step1 cyoa-step2 cyoa-step3  cyoa-step4
 g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -c cyoa-step3.cpp
 g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -c cyoa3.cpp
 g++ -o cyoa-step3 -ggdb3 cyoa-step3.o cyoa3.o
@@ -93,9 +93,17 @@ Your file matched the expected output
 Step 3: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step4
-rm -f *~ *.o cyoa-step1 cyoa-step2 cyoa-step3 
-The code did not compile!
-Did not compile for step 4
+rm -f *~ *.o cyoa-step1 cyoa-step2 cyoa-step3  cyoa-step4
+g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -c cyoa-step4.cpp
+g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -c cyoa4.cpp
+g++ -o cyoa-step4 -ggdb3 cyoa-step4.o cyoa4.o
++-----------------------------------------------------------------------+
+Test case 17 (success): cyoa-step4 /usr/local/ece551/cyoa/story1
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case 18 (success): cyoa-step4 /usr/local/ece551/cyoa/story2
+Your file matched the expected output
+Step 4: PASSED Pre-Grader Test Cases
 Running your test cases
 Cannot proceed without testcases.txt
 
