@@ -327,7 +327,12 @@ void BFS(std::vector<Page> & p) {
 
 void printDepth(std::vector<Page> & p) {
   for (size_t i = 0; i < p.size(); i++) {
-    std::cout << "Page " << i + 1 << ":" << p[i].getDepth() << std::endl;
+    if (p[i].getDepth() == 0 && i != 0) {
+      std::cout << "Page " << i + 1 << "is not reachable" << std::endl;
+    }
+    else {
+      std::cout << "Page " << i + 1 << ":" << p[i].getDepth() << std::endl;
+    }
   }
 }
 
@@ -335,6 +340,7 @@ void DFS(std::vector<Page> & p) {
   p[0].setVisited();
   std::stack<Page> mystack;
   mystack.push(p[0]);
+  bool winnable = false;
   while (!mystack.empty()) {
     int currNum = mystack.top().getpageNum();
     Page * curr = &p[currNum - 1];
@@ -343,6 +349,7 @@ void DFS(std::vector<Page> & p) {
     mystack.pop();
     for (size_t i = 0; i < choiceNum.size(); i++) {
       if (p[choiceNum[i] - 1].is_pageWin()) {
+        winnable = true;
         p[choiceNum[i] - 1].setPrev(curr);
         p[choiceNum[i] - 1].setChoice(i + 1);
         p[choiceNum[i] - 1].setpageNum(choiceNum[i]);
@@ -358,6 +365,11 @@ void DFS(std::vector<Page> & p) {
         mystack.push(p[choiceNum[i] - 1]);
       }
     }
+  }
+
+  if (winnable == false) {
+    std::cout << "This story is unwinnable!" << std::endl;
+    exit(EXIT_SUCCESS);
   }
 }
 

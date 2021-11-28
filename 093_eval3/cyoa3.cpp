@@ -327,6 +327,11 @@ void BFS(std::vector<Page> & p) {
 
 void printDepth(std::vector<Page> & p) {
   for (size_t i = 0; i < p.size(); i++) {
-    std::cout << "Page " << i + 1 << ":" << p[i].getDepth() << std::endl;
+    if (p[i].getDepth() == 0 && i != 0) {
+      std::cout << "Page " << i + 1 << "is not reachable" << std::endl;
+    }
+    else {
+      std::cout << "Page " << i + 1 << ":" << p[i].getDepth() << std::endl;
+    }
   }
 }
