@@ -1,4 +1,4 @@
-#include "cyoa4.hpp"
+#include "cyoa.hpp"
 
 int main(int argc, char ** argv) {
   std::vector<Page> pageStory = makePages(argc, argv);

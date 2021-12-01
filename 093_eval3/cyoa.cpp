@@ -1,4 +1,4 @@
-#include "cyoa4.hpp"
+#include "cyoa.hpp"
 
 void Page::printContents() {
   std::vector<std::string>::iterator it = contents.begin();
