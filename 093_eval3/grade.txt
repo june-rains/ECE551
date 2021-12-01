@@ -1,14 +1,43 @@
-Grading at 12/01/2021:22:16:57.228072
-For commit ID cfa3e5887037002047ca5de256f7ec92803af868
-Grading at Wed Dec  1 17:16:50 EST 2021
+Grading at 12/01/2021:22:18:29.116598
+For commit ID 5b557523ea435c395a777ba89d235076e1007279
+Grading at Wed Dec  1 17:18:07 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
 rm -f *~ *.o cyoa-step1 cyoa-step2 cyoa-step3  cyoa-step4
-g++     cyoa-step1.cpp   -o cyoa-step1
-<builtin>: recipe for target 'cyoa-step1' failed
-The code did not compile!
-Did not compile for step 1
+g++ -o cyoa-step1 -Wall -Werror -std=gnu++98 cyoa-step1.cpp cyoa1.cpp
+Compiled for step 1
++-----------------------------------------------------------------------+
+Test case 1 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page1.txt
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case 2 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page2.txt
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case 3 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page3.txt
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case 4 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page4.txt
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case 5 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page5.txt
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case 6 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page1.txt
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case 7 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page2.txt
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case 8 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page3.txt
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case 9 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page4.txt
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case 10 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page5.txt
+Your file matched the expected output
+Step 1: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step2
 rm -f *~ *.o cyoa-step1 cyoa-step2 cyoa-step3  cyoa-step4
@@ -20,14 +49,14 @@ Input to story is
 1
 
 +-----------------------------------------------------------------------+
-Test case 1 (success): cyoa-step2 /usr/local/ece551/cyoa/story1 < pregrader_input.txt
+Test case 11 (success): cyoa-step2 /usr/local/ece551/cyoa/story1 < pregrader_input.txt
 Your file matched the expected output
 Input to story is
 3
 2
 
 +-----------------------------------------------------------------------+
-Test case 2 (success): cyoa-step2 /usr/local/ece551/cyoa/story1 < pregrader_input.txt
+Test case 12 (success): cyoa-step2 /usr/local/ece551/cyoa/story1 < pregrader_input.txt
 Your file matched the expected output
 Input to story is
 1
@@ -36,29 +65,37 @@ Input to story is
 1
 
 +-----------------------------------------------------------------------+
-Test case 3 (success): cyoa-step2 /usr/local/ece551/cyoa/story2 < pregrader_input.txt
+Test case 13 (success): cyoa-step2 /usr/local/ece551/cyoa/story2 < pregrader_input.txt
 Your file matched the expected output
 Input to story is
 3
 
 +-----------------------------------------------------------------------+
-Test case 4 (success): cyoa-step2 /usr/local/ece551/cyoa/story2 < pregrader_input.txt
+Test case 14 (success): cyoa-step2 /usr/local/ece551/cyoa/story2 < pregrader_input.txt
 Your file matched the expected output
 Step 2: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step3
 rm -f *~ *.o cyoa-step1 cyoa-step2 cyoa-step3  cyoa-step4
-g++     cyoa-step3.cpp   -o cyoa-step3
-<builtin>: recipe for target 'cyoa-step3' failed
-The code did not compile!
-Did not compile for step 3
+g++ -o cyoa-step3 -Wall -Werror -std=gnu++98 cyoa-step3.cpp cyoa.cpp
++-----------------------------------------------------------------------+
+Test case 15 (success): cyoa-step3 /usr/local/ece551/cyoa/story1
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case 16 (success): cyoa-step3 /usr/local/ece551/cyoa/story2
+Your file matched the expected output
+Step 3: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step4
 rm -f *~ *.o cyoa-step1 cyoa-step2 cyoa-step3  cyoa-step4
-g++     cyoa-step4.cpp   -o cyoa-step4
-<builtin>: recipe for target 'cyoa-step4' failed
-The code did not compile!
-Did not compile for step 4
+g++ -o cyoa-step4 -Wall -Werror -std=gnu++98 cyoa-step4.cpp cyoa.cpp
++-----------------------------------------------------------------------+
+Test case 17 (success): cyoa-step4 /usr/local/ece551/cyoa/story1
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case 18 (success): cyoa-step4 /usr/local/ece551/cyoa/story2
+Your file matched the expected output
+Step 4: PASSED Pre-Grader Test Cases
 Running your test cases
 Cannot proceed without testcases.txt
 
