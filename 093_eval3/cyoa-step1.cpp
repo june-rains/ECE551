@@ -2,7 +2,7 @@
 #include <fstream>
 #include <iostream>
 
-#include "cyoa.hpp"
+#include "cyoa1.hpp"
 
 int main(int argc, char ** argv) {
   // std::ifstream ifs = openFiles(argc, argv);
