@@ -45,23 +45,6 @@ int main(int argc, char ** argv) {
     page.printChoices();
   }
 
-  //test stub code
-  /*
-  for (size_t i = 0; i < navigation.size(); ++i) {
-    std::cout << navigation[i] << std::endl;
-  }
-
-  for (size_t i = 0; i < contents.size(); ++i) {
-    std::cout << contents[i] << std::endl;
-  }
-  for (std::map<unsigned, std::string>::iterator it = choices.begin();
-       it != choices.end();
-       ++it) {
-    std::cout << it->first << " => " << it->second << '\n';
-  }
-
-  std::cout << "Success\n";
-  */
   ifsn.close();
   ifsc.close();
   return EXIT_SUCCESS;
