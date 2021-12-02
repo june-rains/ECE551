@@ -1,3 +1,5 @@
+
+/************** This is the first step source file ******************/
 #include "cyoa1.hpp"
 
 std::vector<std::string> parseNav(std::ifstream & ifs) {
@@ -22,7 +24,7 @@ std::vector<std::string> parseNav(std::ifstream & ifs) {
       index_seperate = i;
     }
   }
-
+  /********** if there has no # symbol ************/
   if (num_seperate == 0) {
     std::cerr << "Invalid Input Format: No #!\n";
     exit(EXIT_FAILURE);
@@ -62,6 +64,8 @@ std::map<unsigned, std::string> parseChoice(std::vector<std::string> & nav) {
 
   for (size_t i = 0; i < nav.size(); i++) {
     int found = nav[i].find(':');
+
+    /************** if there is no colon symbol ************/
     if (found == -1) {
       std::cerr << "Invaild Input Format: no colon in choices!\n";
       exit(EXIT_FAILURE);
@@ -73,6 +77,8 @@ std::map<unsigned, std::string> parseChoice(std::vector<std::string> & nav) {
     const char * choiceNum_char = choiceNum.c_str();
     char * endptr;
     long num = strtol(choiceNum_char, &endptr, 10);
+
+    /************ Invalid choice Number case *************/
     if (endptr == choiceNum_char) {
       std::cerr << "Invalid Input Format: can not convert to number!\n";
       exit(EXIT_FAILURE);
@@ -105,64 +111,4 @@ std::vector<std::string> cutNav(std::vector<std::string> & nav) {
     navCont.push_back(nav[i].substr(found + 1));
   }
   return navCont;
-}
-
-Page * makeOnePage(std::ifstream & ifsn, std::ifstream & ifsc) {
-  Page * newpage;
-  std::vector<std::string> navigation = parseNav(ifsn);
-  std::map<unsigned, std::string> choices;
-  std::vector<std::string> navCont;
-  std::vector<std::string> contents = parseCont(ifsc);
-  bool is_normal = is_pageNormal(navigation);
-  if (is_normal) {
-    choices = parseChoice(navigation);
-    navCont = cutNav(navigation);
-  }
-
-  if (is_normal) {
-    newpage = new normalPage(contents, choices, navCont);
-  }
-
-  else {
-    std::string nav = navigation[0];
-    newpage = new winlosePage(contents, nav);
-  }
-
-  return newpage;
-}
-
-std::vector<Page *> makePages(int argc, char ** argv) {
-  std::vector<Page *> Pages;
-  if (argc != 2) {
-    std::cerr << "Invalid Argument!\n";
-    exit(EXIT_FAILURE);
-  }
-
-  std::stringstream ss1;
-  ss1 << argv[1] << "/page1.txt";
-  const char * page1Name = ss1.str().c_str();
-  std::ifstream ifsn1(page1Name, std::ifstream::in);
-  std::ifstream ifsc1(page1Name, std::ifstream::in);
-
-  if (!ifsn1.is_open() || !ifsc1.is_open()) {
-    std::cerr << "Not have page1.txt!!\n";
-    exit(EXIT_FAILURE);
-  }
-
-  Pages.push_back(makeOnePage(ifsn1, ifsc1));
-
-  while (true) {
-    std::stringstream ss;
-    size_t index = 2;
-    ss << argv[1] << "/page" << index << ".txt";
-    const char * pageName = ss.str().c_str();
-    std::ifstream ifsn(pageName, std::ifstream::in);
-    std::ifstream ifsc(pageName, std::ifstream::in);
-
-    if (!ifsn.is_open() || !ifsc.is_open()) {
-      break;
-    }
-    Pages.push_back(makeOnePage(ifsn, ifsc));
-  }
-  return Pages;
 }

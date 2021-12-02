@@ -1,5 +1,9 @@
+
+/************** This is source file for step2, step3, step4 ************/
+
 #include "cyoa.hpp"
 
+/*************** Use this method to print the page contents *******/
 void Page::printContents() {
   std::vector<std::string>::iterator it = contents.begin();
   while (it != contents.end()) {
@@ -8,6 +12,7 @@ void Page::printContents() {
   }
 }
 
+/********** Use this method to judge the page type *********/
 bool Page::is_pageNormal() {
   bool normal = true;
   std::string strWin("WIN");
@@ -19,11 +24,14 @@ bool Page::is_pageNormal() {
   return normal;
 }
 
+/********* Use this method to get page's navigation part *******/
 std::vector<std::string> Page::parseNav() {
   std::vector<std::string> navCont;
   if (is_pageNormal()) {
     for (size_t i = 0; i < navigation.size(); i++) {
       int found = navigation[i].find(':');
+
+      /****** if there has no colon in choices: failure! ******/
       if (found == -1) {
         std::cerr << "Invaild Input Format: no colon in choices!\n";
         exit(EXIT_FAILURE);
@@ -35,6 +43,8 @@ std::vector<std::string> Page::parseNav() {
       const char * choiceNum_char = choiceNum.c_str();
       char * endptr;
       long num = strtol(choiceNum_char, &endptr, 10);
+
+      /******* Invalid choice number case ********/
       if (endptr == choiceNum_char) {
         std::cerr << "Invalid Input Format: can not convert to number!\n";
         exit(EXIT_FAILURE);
@@ -52,11 +62,14 @@ std::vector<std::string> Page::parseNav() {
   return navCont;
 }
 
+/************ Use this method to get page's choice number vector *********/
 std::vector<unsigned> Page::getChoiceNum() {
   std::vector<unsigned> choiceNum;
   if (is_pageNormal()) {
     for (size_t i = 0; i < navigation.size(); i++) {
       int found = navigation[i].find(':');
+
+      /****** if there has no colon in choices: failure! ******/
       if (found == -1) {
         std::cerr << "Invaild Input Format: no colon in choices!\n";
         exit(EXIT_FAILURE);
@@ -66,6 +79,8 @@ std::vector<unsigned> Page::getChoiceNum() {
       const char * choiceNum_char = Num.c_str();
       char * endptr;
       long num = strtol(choiceNum_char, &endptr, 10);
+
+      /******* Invalid choice number case ********/
       if (endptr == choiceNum_char) {
         std::cerr << "Invalid Input Format: can not convert to number!\n";
         exit(EXIT_FAILURE);
@@ -80,7 +95,9 @@ std::vector<unsigned> Page::getChoiceNum() {
   return choiceNum;
 }
 
+/*************** Use this method tp print page ********/
 void Page::printPages() {
+  /***** if page is not win or lose page ******/
   if (is_pageNormal()) {
     printContents();
     std::cout << std::endl;
@@ -88,6 +105,7 @@ void Page::printPages() {
     std::cout << std::endl;
     printNav();
   }
+  /***** if page is win or lose page *******/
   else {
     printContents();
     std::cout << std::endl;
@@ -95,8 +113,11 @@ void Page::printPages() {
   }
 }
 
+/******** use this method to print page's navigation part *********/
 void Page::printNav() {
   std::vector<std::string> navCont;
+
+  /***** if page is not win or lose page ******/
   if (is_pageNormal()) {
     navCont = parseNav();
     int index = 1;
@@ -106,6 +127,8 @@ void Page::printNav() {
       index++;
     }
   }
+
+  /***** if page is win or lose page ******/
   else {
     std::string strWin("WIN");
     std::string strLose("LOSE");
@@ -119,6 +142,7 @@ void Page::printNav() {
   }
 }
 
+/*********** use this function to parse navigation part in one page ********/
 std::vector<std::string> parseNav(std::ifstream & ifs) {
   std::string str;
   std::vector<std::string> lines;
@@ -154,6 +178,7 @@ std::vector<std::string> parseNav(std::ifstream & ifs) {
   return navigation;
 }
 
+/*********** use this function to parse content part in one page ********/
 std::vector<std::string> parseCont(std::ifstream & ifs) {
   std::string str;
   std::vector<std::string> lines;
@@ -175,27 +200,8 @@ std::vector<std::string> parseCont(std::ifstream & ifs) {
 
   return contents;
 }
-/*
-Page makePage(int argc, char ** argv) {
-  if (argc != 2) {
-    std::cerr << "Invalid Argument!\n";
-    exit(EXIT_FAILURE);
-  }
-  std::ifstream ifsn(argv[1], std::ifstream::in);
-  std::ifstream ifsc(argv[1], std::ifstream::in);
-  if (!ifsn.is_open() || !ifsc.is_open()) {
-    std::cerr << "Can not open the file!\n";
-    exit(EXIT_FAILURE);
-  }
-  std::vector<std::string> navigation = parseNav(ifsn);
-  std::vector<std::string> contents = parseCont(ifsc);
-  Page newpage(contents, navigation);
-  ifsn.close();
-  ifsc.close();
-  return newpage;
-}
-*/
 
+/********** use this function to make one page object *********/
 Page makeOnePage(std::ifstream & ifsn, std::ifstream & ifsc) {
   std::vector<std::string> navigation = parseNav(ifsn);
   std::vector<std::string> contents = parseCont(ifsc);
@@ -203,6 +209,7 @@ Page makeOnePage(std::ifstream & ifsn, std::ifstream & ifsc) {
   return newpage;
 }
 
+/************ use this function to make a vector of pages *********/
 std::vector<Page> makePages(int argc, char ** argv) {
   std::vector<Page> Pages;
   if (argc != 2) {
@@ -241,6 +248,7 @@ std::vector<Page> makePages(int argc, char ** argv) {
   return Pages;
 }
 
+/********* use this function to check Pages format ************/
 void checkPages(std::vector<Page> & p) {
   int numWin = 0;
   int numLose = 0;
@@ -291,6 +299,7 @@ void checkPages(std::vector<Page> & p) {
   }
 }
 
+/*********** use this function to help users to get story  ************/
 void getStory(std::vector<Page> & pageStory, unsigned pageNum) {
   pageStory[pageNum - 1].printPages();
   if (!pageStory[pageNum - 1].is_pageNormal()) {
@@ -318,6 +327,8 @@ void getStory(std::vector<Page> & pageStory, unsigned pageNum) {
     return getStory(pageStory, choiceNum[choice - 1]);
   }
 }
+
+/*********** use this method to help us know wether the page is visited ********/
 bool Page::isVisited() {
   if (visited == true) {
     return true;
@@ -327,6 +338,7 @@ bool Page::isVisited() {
   }
 }
 
+/********** use BFS to help set the page's depth *********/
 void BFS(std::vector<Page> & p) {
   p[0].setVisited();
   std::queue<Page> myqueue;
@@ -345,6 +357,7 @@ void BFS(std::vector<Page> & p) {
   }
 }
 
+/*********** print the page's depth **********/
 void printDepth(std::vector<Page> & p) {
   for (size_t i = 0; i < p.size(); i++) {
     if (p[i].getDepth() == 0 && i != 0) {
@@ -356,6 +369,7 @@ void printDepth(std::vector<Page> & p) {
   }
 }
 
+/************ Use DFS Method to help us find the soultion ********/
 void DFS(std::vector<Page> & p) {
   p[0].setVisited();
   std::stack<Page> mystack;
@@ -393,6 +407,7 @@ void DFS(std::vector<Page> & p) {
   }
 }
 
+/********** use this method to help us to know wether the page is win page *********/
 bool Page::is_pageWin() {
   bool win = false;
   std::string strWin("WIN");
@@ -402,6 +417,7 @@ bool Page::is_pageWin() {
   return win;
 }
 
+/********** use this function to help us to print the solution **********/
 void printSolution(Page * p) {
   std::vector<Page *> pageSol;
   Page * curr = p;
