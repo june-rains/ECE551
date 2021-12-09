@@ -1,6 +1,6 @@
-Grading at 12/07/2021:04:01:45.109617
+Grading at 12/09/2021:15:55:13.999240
 For commit ID 17da01dafe5d745698500bae47b682a91f7f1875
-Grading at Mon Dec  6 23:00:45 EST 2021
+Grading at Thu Dec  9 10:54:15 EST 2021
 
 =========================================================================
 Step 1
@@ -297,5 +297,6 @@ be narrowed and follow better object oriented design principles.
 Quality total                                            [8.5/10]
 
 =========================================================================
+Extra credit for early progress: 10
 
-Overall Grade: 94
+Overall Grade: 104
